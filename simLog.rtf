@@ -1,0 +1,2535 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue192;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c75294;}
+\margl1440\margr1440\vieww14780\viewh22100\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 This is a log of work on the Java simulator.\
+Started on 4 June 2017\
+The program started 20 years ago.\
+It\'92s based on a Chore list, each chore is a Command that has a DO method to execute. \
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 24 April 2018 at PSU 10:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I am going to fire up this old simulator again.\
+I think I can make composite objects that connect together more easily.\
+I started up Eclipse pointing to the src files only - that mixed the class files with the source files.\
+I should start Eclipse with a level higher so it can use the bin file system for the class files.\
+OK I\'92m started properly.\
+The old code runs OK and updates the class files in directory called bin.\
+\
+REVIEW:\
+Commands are used by Links and Joints to wake eachother up.\
+All of the generators are built as code in \
+I\'92m going to make a new package called Composite\
+There is a class called group, but it\'92s not a Composite, but might hold a Composite\'92s parts.\
+\
+I want to experiment with the stuff from memo 2018-is21 about composites.\
+Each composite will be described as a class.\
+It\'92s periphery will be specified in its constructor - the things you give it to attach to.\
+Let\'92s start with FIFO..\
+Quit at 11:00 am  -  about an hour.\
+Chris Chen and I had a conversation about what to represent.\
+We want to represent the graph at a high level.\
+Compilation will then reduce it to the actual stuff on the chip,\
+taking into account the geometric layout, word length, etc. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 24 April 2018 at home at 06:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I reviewed this old project to remember how typed variables are put into calling sequence.\
+Quit at 06:05 for getting  upfor the day.\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 22 January 2018 at PSU at 10:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I still need to put the time at the beginning of each line.\
+I got it partly done\
+Quit at 12:15 for lunch\
+\
+Restart at 13:15\
+Working on moving time stamp in output\
+Break at 14:15\
+\
+Restart at 14:45\
+I have the time moved to the front of each line.\
+Some obscure things are still in error\
+Quit at 16:15\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 19 January 2018 at home at 02:10\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I want to reduce the amount of printing output and put times first on the line.\
+changed text size.\
+Quit at 0255\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 18 January 2018 at PSU at 04:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I wasted an hour at home trying to get Eclipse Oxygen downloaded.\
+It needed a new version of JAVA, which I also tried, but no joy.\
+So I came into the University.\
+\
+I need to distinguish between zero time values.\
+I\'92ll make the compare code in Command more distinguishing.\
+Done\
+As far as I can tell it\'92s working.\
+The DemandMerge joint appears to be firing alternately.\
+I copied it\'92s output into   output-18jan18,rtf\
+I need to parameterize the sources - but how?\
+Maybe with multiple actions?\
+Quit at 06:00 to go to Andersons\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 18 January 2018 at home at 02:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I couldn\'92t sleep so I got up.\
+i believe I need to refine the compare code in Command to avoid equality.\
+Working at home I had to install a new version of Java stuff.\
+So I downloaded a new Eclipse, but I can\'92t find it anywhere.\
+It had asked for a newer version of Java which I also did.\
+Now I\'92m dead in the water at 02:45 wasted n early an hour.\
+New Ecliipse requires new JVM. How do I get rid of the old one?\
+I quit at 03:00 wasted an hour.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 17 January 2018 at PSU at 06:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I think I\'92ll put the wait time idea into Links\
+I\'92ve put in some wait time statistics - for the round robin  it shows mostly data wait\
+Here are the FIFO statistics: \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 Printing statistics of 8 Links\
+L:1:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 256 average= 32\
+    dataWait  total= 576 average= 72\
+L:2:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 256 average= 32\
+    dataWait  total= 608 average= 76\
+L:3:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 256 average= 32\
+    dataWait  total= 640 average= 80\
+L:4:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 256 average= 32\
+    dataWait  total= 672 average= 84\
+L:5:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 256 average= 32\
+    dataWait  total= 704 average= 88\
+L:6:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 256 average= 32\
+    dataWait  total= 736 average= 92\
+L:7:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 256 average= 32\
+    dataWait  total= 768 average= 96\
+L:8:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 264 average= 33\
+    dataWait  total= 793 average= 99\
+printStatistics of Links is done \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 \
+I found that I had negative delays in CopyAction. \
+I fixed that and now I get\
+Why do successive Links wait longer for data?\
+I just don\'92t know.\
+Because I initiated last action to ZeroTime.\
+Fixed that too and now I get\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 Printing statistics of 8 Links\
+L:1:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 296 average= 37\
+    dataWait  total= 441 average= 55\
+L:2:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 296 average= 37\
+    dataWait  total= 441 average= 55\
+L:3:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 296 average= 37\
+    dataWait  total= 441 average= 55\
+L:4:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 296 average= 37\
+    dataWait  total= 441 average= 55\
+L:5:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 296 average= 37\
+    dataWait  total= 441 average= 55\
+L:6:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 296 average= 37\
+    dataWait  total= 441 average= 55\
+L:7:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 296 average= 37\
+    dataWait  total= 441 average= 55\
+L:8:Link.FIFO-1 passed 8 items and 8 spaces and is EMPTY\
+    spaceWait  total= 264 average= 33\
+    dataWait  total= 469 average= 58\
+printStatistics of Links is done \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 \
+Which is more reasonable. \
+Now about 10:42\
+I can start working on the DemandMerge.\
+I believe it is just a merge with two Actions but has special SortedJointCommands.\
+I built such a mertge. I still need to fix source to have a parameter.\
+I deleted the old DemandMergeAction.\
+Quit at 12:30 for lunch\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 15 January 2018 at PSU at 12:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 The end of the program is not clean.\
+I discovered and fixed a bug in SqareQueue.getNextCommand().\
+The initial call to sourceJoint from system should not count as a wake up.\
+Likewise the final call to sinkJoint\
+Quit at 13:00 for lunch\
+\
+Resume at 15:00\
+The RondRobin action had the fire a\\part of it\'92s acton before grab();\
+Fixed and now all of the tests that I have run to completion.\
+I napped a bit, so I\'92ll say quit at 16:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 12 January 2018 at PSU at 08:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I had a null time yesterday. I want to track it down.\
+I\'92m making some progress, but it\'92s slow.\
+I seem to be trying to enqueue stuff without times.\
+I put back the setMyGuarTime() methods to cache the guard times.\
+At 11:23 it ran all the way to the second call to sink.\
+Quit to tak a beak at 11:30\
+\
+Restart at 14:00\
+SinkAction fire should drain everybody\
+It was another problem of trying to see the state of the Links \
+   after having done the grab operation.\
+Quit at 15:00\
+\
+Chris and I talked about \'93congestion\'94 in the network.\
+He suggested the ferry analogy - loading time, transit time, delivery time, transit time.\
+A transit time starts each time the Link fires. \
+At each firing a Link can compute how long it waited for data or for space. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 11 January 2018 at PSU at 15:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I upgraded the PSU operating system to HighSierra 10.13.2\
+I\'92ve decided to make congestion a Link property not a Joint property.\
+So I\'92m going to simplify the Demand Merge Joint to gather fewer statistics.\
+I must use the cached Time in Action:
+\f1\fs26 \cf2 myGuardTime
+\f0\fs28 \cf0 \
+Because grab has changed the times.\
+Fixed that and now the \
+There\'92s some issue about starting up.\
+Is the SquareQueue set up probably when simulation begins?\
+Quit at 16:15 to go shopping\
+\
+Restart at 17:30\
+I got Eclipse to show the spaces properly and to format well.\
+I have a bug out of sourceJoint when it calls an output link.\
+Quit at 19:15\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 09 January 2018 at home at 04:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92ve been thinking in the night.\
+I\'92d like to collect congestion statistics on all Links.\
+It\'92s a ratio of how much time is spent waiting for Data\
+   to how much time is spent waiting for space. \
+Waiting for data is the time between the last firing and when data arrived for this firing.\
+No - the raio is wrong because very sparse data will cause a big ratio.\
+It\'92s the difference in arrival that matters. \
+It\'92s the ratio of how long data waits for space to\
+   how long space waits for data. \
+NO \
+It\'92s a difference divided by a sum, perhaps expressed as a %\
+wait for data - wait for space\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+wait for data + wait for space\
+\
+The wait time starts when data or space arrive and ends when it fires. \
+Or something.\
+\
+Another idea in the night.\
+Perhaps we need a class called Guard to serve everyone. \
+I see how it might take some of the work from actions, but only the Copy action. \
+It might also serve Links. \
+But how would it attach to the actions or to the Links?\
+It\'92s now 04:15.\
+I\'92m going to tidy up the mess I made yesterday of the Demand Merge\
+\
+First I worked over the SqareQueue memo and fixed the names of the Commands.\
+I had printed their names twice.\
+finished version 1 of the memo is02 at 05:20.\
+Quit to get some breakfast at 05:20\
+\
+Resume at 06:05\
+I moved the earliest time code to class Time.\
+I have not yet got it all to work - it should run the previoius tests.\
+Quit at 06:30\
+\
+Resume at 07:15\
+There\'92s a bug in the enqueue part of SquareQueue\
+Need some print out about when we\'92re enqueue things.\
+Really quit at 07:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 09 January 2018 at PSU at 10:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Chris helped me upgrade my Eclipse on the big Machine in my office.\
+Now using Eclipse.oxigen.\
+Now also using JavaJdk 8 something\
+I want to make the font bigger, and I now longer have the\
+Quit at 10:30\
+\
+Restart at 11:00\
+I have the latest Eclipse installed on the portable and the office machine.\
+Now cache for the guard appears to be a bad idea,  so I\'92m going to delete it.\
+That creates 26 problems to fix, so I\'92ll fix them.\
+I got rid of all the cache uses of myGuard in action\
+Now I think I have to save the Time that I find in \'93guard\'94 for use in grab\
+Quit at 11:45 for lunch\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 08 January 2018 at home at 05:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I had a long talk with Marly about the simulator. \
+She is perswasive that the demand merge must have memory of some kind.\
+The question is what memeory?\
+It would be nice if the only memory required were already in the near ends of its Links. \
+I note that in the case of \'93simultanious\'94 arrival, e.g. at same or close time, \
+   the second input command wake up will occur before the input Link actions that\
+   provide space can possibly have happened. Thus looking at the near end state\
+   of both input Links should suffice.\
+Only the wake up call is deferred. \
+The actions of the Links, if any, must be complete before the wake up.\
+And so a tie is when both input Links report full upon any wake up.\
+I didn\'92t change the code at all - just thinking this morning. \
+Quit at 06:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 08 January 2018 at PSU at 16:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I worked for about an hour today.\
+Chris Chen and I decided that a \'93contested\'94 merge occurs\
+   when both inputs are full but neither action can happen.\
+That implies that a request came in while the Merge was serving another.\
+Quit at 18:00 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 07 January 2018 at PSU at 07:00 Marly\'92 birthday\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Car is charging in the garage.\
+I got rid of all compilation errors, but the DemandMerge Joint must be completed.\
+There is no \'93DemandMergeAction\'94 - instead it\'92s two copy actions.\
+I\'92m at the point of figuring out how to write DemandMergeJoint.\
+Too hard for this morning, so I\'92m going to go home.\
+I tidied out a bunch of unused imports.\
+Quit at 09:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 06 January 2018 at PSU at 05:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I cleaned out errors in the source code.\
+I\'92m puzzling about the Comparable interface.\
+Can I have a bunch of things that are Comparable<Time> and provide\
+	overloaded compareTo operators? I\'92ll bet so.\
+It looks like I can\'92t do this. I\'92ll ask around\
+The fix for now is to treat the sorted queue as just Commands,\
+and then cast the stuff that comes out into SortedJointCommands.\
+\
+I\'92m having trouble with the Time used for sorting.\
+Seems like a Command has to have a Time attached to it. \
+I\'92m having problems with 
+\f1 NavigableSet\
+
+\f0 And I don\'92t know why.\
+I think I\'92ll go home for breakfast.\
+Quit at 10:00
+\f1 \ul \
+
+\f0 \ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 06 January 2018 at home at 12:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to make some simple tessts of SquareQueue\
+break at 13:30 for lunch\
+\
+restart at 15:15\
+I built a test for SqareQueue and got it to work and print out !\
+I need to apply it to the test cases, but that\'92s for tomorrow.\
+And I can make DemandMerge work too!\
+It\'92s the cocktail hour now\
+quit at 17:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 05 January 2018 at home at 01:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I got up becase of a leg cramp.\
+Yesterday I had implemented a single queue of instructions called theQueue.\
+It holds sortedJointCommands, each of which has a Deque of unsorted commands.\
+The SourceJoint class puts an initial entroy onto theQueue to get things started. \
+I tink I got theQueue pretty well done - not as hard as I thought.\
+I need to print theQueue.\
+\
+The main queue, called theQueue, is of SortedJointCommands.\
+It is presently a creature of the SortedJointCommand class.\
+Is that the right place for it? Maybe its own class? Maybe in Command.\
+I\'92m no going to answer that now\
+quit at 02:00.\
+\
+Start again at 15:30\
+I\'92ve decided to make the queue a separate class.\
+The ideas are rich enough to warrent that.\
+Now the question is what this new class will have to know about \
+UnsortedCommands and SortedJointCommands.\
+It turns out not much.\
+I had to put queue handling stuff into SortedJointCommand - that\'92s all.\
+I have fixed a lot of compilation errors.\
+Time to quit now and leave the printing and testing for tomorrow.\
+Quit at 17:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 04 January 2018 at PSU at 05:25\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I copied the source code dated 22dec17 after noting that the plain version\
+from home follows the U version of that date.\
+\
+Chris Chen and I discussed the sorting for Link commands yesterday.\
+We concluded that a partially sorted list was adequate.\
+Each sorted command will have a list of unsorted commands to be done before it.\
+When the first sorted command arrives, the entire unsorted list goes before it.\
+Thereafter new unsorted commands go before or after sorted commands.\
+OK, so I\'92m going to start work on the Command classes.\
+\
+I spent a long time trying to make editor text bigger. It\'92s Monaco 14 and I can\'92t change it.\
+Eventually I forced Eclipse to quit.\
+Now I have to start again.\
+My setup was still there.\
+\
+I think I have to redo a lot of the Command class to get it to do what I want.\
+The real problem seems to be that Links don\'92t attach a Time to their output commands.\
+Although doIT doesn\'92t carry a Time, queueIT does.\
+Who manages the queens?\
+I think Command should just a holder for SortedCommand and UnsortedCommand.\
+Unsorted command should deal with it\'92s queue and sorted command with its. \
+Where is the task list now?\
+\
+So I\'92m gong to do major revisions to the Command Classes\
+I\'92ve decided on a class structure. Sorting comes in only for SortedJointCommand.\
+Break at 09:15 to get Marly.\
+\
+11:15 resume\
+12:30 break for lunch\
+\
+1:00 back to work\
+3:15 quit to go to the moves.\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 22 December 2017 at PSU at 04:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to simplify the Joint class. \
+Then I plan to make a joint with several actions.\
+I\'92ve cleaned out the errors.\
+Action is an abstract class with four methods: \
+	void initialize()\
+	Time guard()\
+	void grab(Time)\
+	boolean fire()\
+It also offers some protected helper functions for sub-classes to use\
+\
+I am running the old branch and merge test OK\
+Now I\'92m going to set up the new test.\
+I find that the RoundRobinForkJoint extends RoundRobinJoint - that\'92s wrong\
+It should extend Joint only.\
+\
+I fixed that, but RoundRobinJoint had the loop generation code -\
+ now added to RoundRobinForkJoint and RoundRobinJointJoint.\
+So the old code still works.\
+Now we can try the new code.\
+I made a 
+\f1 testRoundRobinB to use the new RoundRobinFork and Join.\
+
+\f0 Each is a RoundRobinJoint with suitable actions attached.\
+Topology is correct, but Master Clear fails.\
+Quit a 09:30 for shopping and to get Marly\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 Restart at 11:30\
+I found the bug - interchanged input and output indices when making a RoundRobinJoint.\
+Now I\'92m working on how to call the Actions from the Joint.\
+I seem to have the full thing working with the RoundRobinJoint\
+	adapted for both Fill and Join.\
+I think that\'92s enough for now - quit to go home by streetcar at 14:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 22 December 2017 at home at 17:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Woring on ljSim-22dec17 which is after the university version.\
+I\'92m going to look carefully at the output from the latest run.\
+Is it actually using different Actions?\
+No it\'92s not. Only the first action is working.\
+I must not have done the modulus calculaton in the Ring\
+Right - the modulus calculaton was not in there.\
+Now it is and all seems well.\
+I\'92m going to quit for the cocktail hour at 18:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 21 December 2017 at home at 07:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 The simple FIFO seems to work OK\
+I made the sink queue it\'92s pass of space rather than doing it.\
+Same simulation results but different order of simulation.\
+It simulates the forward passage without the queue, and then\
+    does all the queued pass space commends.\
+\
+Now I\'92m ready to try the round robin stuff.\
+Round robbin test fails for varioius reasons, but can be debugged.\
+Quit at 09:15 to go to PSU\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 21 December 2017 at PSU at 10:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Continuing the round robin debug\
+11:35 the round robin runs to completion without errors.\
+I fixed the guard grab and fire methods in the roundRobin Fork and Join\
+This has to be done very carefully.\
+Talk with Chris Chen about how to factor the program further.\
+The round robin joint could have several actions.\
+Indeed, it could sequence the actions rather than the index. Value.\
+Quit at 12:15 for lunch\
+\
+Resume at 1:30\
+Things to do. \
+1) move the circulate mod to be in Value and rename I t.\
+2) Joints should have minimum and maximum inputs and outputs\
+\
+Let\'92s of 1 first.\
+Well, it\'92s already there called nextRingValue(modulus) !\
+\
+Now for the size limits - I\'92ll add a limit to class Joint.\
+I now have a size limit in Joint.\
+There\'92s a checkMyTopology method in all Joints.\
+We can check that there are enough attached links there.\
+Done.\
+\
+I believe that Action show be an abstract class with its three critical methods.\
+Then we can have a DualAction class that moves two things.\
+Action is already abstract.\
+I need to think trough where the selection of actions happens.\
+I think at the DualAdc\
+\
+This is a mess. \
+I think I\'92ll make a RoundRobinJoint that has copy action for the ring\
+And an array of other actions from which it will pick. \
+But that\'92s for tomorrow\
+Quit at 17:45.\
+ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 20 December 2017 at PSU at 13:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 There are 18 errors in RoundRobin stuff and MemoryLoop and DemandMerge\
+I\'92m going to work on the round robin simulation today.\
+It\'92s. Hare. To knowhow to break up the guard() and the grab() functions\
+16:57 we have only 7 errors in MemoryLoop and in DemandMerge\
+I think Memory Loop is no longer used.\
+NO it\'92s the basis of RoundRobin classes - so I commented out the errors.\
+Quit at 17:00 to go shopping for food.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 19 December 2017 at home at 03:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I did the comments for Link and Joint yesterday.\
+Today I\'92m going to start there and make major changes.\
+I went through Link and Joint making minor changes only\
+I killed the class called LinkOld\
+I put the EMPTY, FILLing, FULL, DRAINing sequence into Link.with error checks\
+I think Link and Joint are up to the new standard.\
+Quit at 05:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 19 December 2017 at PSU at 10:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 At 12:02 I have errors remaining only in \
+	
+\f1 RoundRobinForkAction\
+	RoundRobinJoinAction\
+	DemandMergeAction\
+I\'92m ready to try running the single FIFO\
+Quit at noon for lunch.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf0 19 December 2017 at PSU at 13:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 There are 19 errors in RoundRobin stuff and memory Loop Joint\
+The FIFO test prints topology and sends one data item into the top Joint\
+So there\'92s something to debug.\
+The guard for CopyAction was wrong - failed to reject some cases.\
+Fixed and now the FIFO example seems to work OK.\
+I notice that the CopyAction has lots of indirection as it runs.\
+Instead of storing the index number for its input and output commands,\
+	let\'92s store the commands themselves, fetching them at setup time.\
+Let\'92s also put the indirection to get the full and empty times in the LinkCommands.\
+Done for the day. \
+I started cleaning up the RoundRobinFork and RoundRobinJoin\
+But more to do on them\
+Quit at 18:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 18 December 2017 at PSU at 13:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m picking this up again after a week respite.\
+Compiling the current version has 28 errors. \
+I recall that I was changed Link to LinkOld and was then moving code back into Link.\
+So I need to continue that process.\
+21 problems at 14:00\
+25 errors at 15:16\
+19 errors at 15:24\
+21 errors at 17:15\
+I\'92m fed up with how many times I have to wind up and unwind TimedValues\
+No that we grab Links ahead of time, surely we can keep the timed values there.\
+\
+BIG DECISION\
+Commands need not have Time associated with them at all.\
+The storage at the end of Links says everything about what can or cannot happen.\
+This is a BIG change to the code, but I think it will work.\
+There are three parts to the actions of a Joint:\
+	guard. Returns a time\
+	grab (Time)  takes the time returned\
+	fire() returns a boolean saying it had no problem.\
+Guard merely discovered when and if the joint could act.\
+Grab fixes up the near end of the Links connected to this Joint.\
+Fire sets the links to working. \
+Links wake up the joints at their far ends.\
+That could be done immediately or as a subroutine. \
+If no joint can act, we must resort to taking an action off the queue.\
+\
+So let\'92s get on with it.\
+I\'92m going to freeze today\'92s code as a fixed point - new stuff tomorrow.\
+I\'92ve fixed up some comments, but now I\'92m going to freeze and quit at 18:30.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 10 December 2017 at home at 04:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m getting rid of LinkOld and fixing Link up to the new standard.\
+Links remmeber whether their Joints are sorcr or sink joints.\
+Joints remember whether their Links are input or output Links\
+I am able to build a topology and print it out.\
+The sysem fails to run, however.\
+Making progress - we\'92re almost done with LinkOld\
+quit at 06:45\
+\
+Adam is late so I can resume at 07:30\
+but I napped and accomplished nothing.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 09 December 2017 at home at 07:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I decided yesterday that Links need only a single command.\
+This is a major revision to Links, so I\'92m going to rename Link as LinkOld\
+  and start a new class called Link.\
+When I can get rid of LinkOld i\'92ll be done.\
+I\'92ve gotten started.\
+quit at 09:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 07 December 2017 at home at 05:30 - a day of infamy\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92ve not worked on this for a while. Busy with Asilomar, drafting, and UT papers.\
+Lat time I got the linear FIFO to work.\
+Today I\'92m going to try the more complicated case\
+which is the RoundRobin branch and merge.\
+Ihave a problem about how much I  have to \'93grab\'94 before moving stuff.\
+They both use the MemoryLoopJoint class with the memory loop built in.\
+Quit at 06:30 for breakfast and talk to Gary Delp.\
+\
+Resume at 07:15\
+I\'92m going to package the action of the roundRobin guys into a single method\
+that will  grab grab grab grab fill fill drain drian.\
+But I have to decide how much revision I want to make.\
+For example: jointNumber is a static variable that I increment for each joint.\
+Why isn\'92t this juut the size of the theJoints, the list of joints?\
+Lots of the code needs this type of revision. \
+OK, I\'92m going to review it all and make some major revisions with comments.\
+Quit at 08:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 01 December 2017 at home at 08:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I fixt up the sink to grab its input Links before draining them.\
+The single column FIFO appears to work OK now. \
+The message is :\
+    before each doIT for a LinkCommand there must be a grabIT,\
+    and for a move from A to B you have to grab both before doing either.\
+This is the rule that all near end action must finish before far end action starts.\
+Quit at 09:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 28 November 2017 at PSU at 09:00\
+I tried to load the new eclipse but it needs the new Java system that I don\'92t have\
+So I\'92ll wait on that.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I can\'92t think of a case where I\'92d want to QUEUE a link. \
+Because calls to links must alternate ends, a link can\'92t be busy when called.\
+That\'92s just an error.\
+So grab should take the error and give up.\
+FillLink should just do it (or queue it) if the joint says so.\
+I\'92m going to replace becameEmptyAt and becameFullAt with simpler stuff.\
+Links need to check that the TimedValue they already have is the same as \
+ the one their fill command is called with. \
+Quit at 09:15\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 28 November 2017 at home at 05:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I know what to do.\
+I need the Link command to have two parts, a preamble and the actal command.\
+A move operation involves doing the preamble of both the input and output links\
+to capture their near-end values.\
+After doing both preambles you can do the actual \'93fillLink\'94 commands which can be\
+queued or not as you choose.\
+The problem was that one link responded before the other was captured.\
+\
+I made grabIT to use before FillLink, but FillLink fails to accommodate\
+the changes that grabIT makes to the link\'92s inputValue.\
+Quit at 06:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 27 November 2017 at home at 08:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Something is wrong with the connection between Links and Joints.\
+A Joint should be able to fire up both its input and output links, one to drain and one to fill.\
+But that lead to problems.\
+I suspect that my notion of what defines an Empty link matters.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 27 November 2017 at PSU at 14:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I worked on this program at home a bit thi morning but made NO program changes.\
+The problem seems to be a result of removing the ensuing point from within\
+the link to the junction between joints and links. A previous version of the code\
+used a procedure call to the link procedures fillMe and drainMe and left it to\
+the link to enqueue the process of getting to its other end.\
+In this version I\'92m trying to get the Joint to enqueue the call to fillMe or drainMe. \
+I think all would be well if I just enqueued both of them OR if I enqueue the first\
+and then follow the other as code.  Who decides between doIT and queueIT?\
+The fix that I put in to make the Joint behave differently depending on the times\
+of arrival has clearly failed.\
+\
+Now - I.e. version of 26nov17U (with which I started this session) becameFillableAt\
+ returns the later of the times when both ends were empty. Actually a link is fillable\
+Iff the last thing it did was to drain, i.e. its input is later than its output. \
+This is not interesting.\
+\
+I think I should try making one a queueIT and the other a doIT.\
+I fixed enQueueMe to carry a TimedValue.\
+Then I made CopyAction ( used in OneInOneOutJoint) enQueue the back command\
+And do the forward command at once. \
+\
+I\'92ve got print out problems because passing data doesn\'92t tell me which data.\
+Also I have sequencing errors.\
+I seem to be on a good track, however, so just a lot of bugs to fix and\
+The code needs careful examination.\
+Quit at 16:00 to await Warren\'92s arrival.\
+\
+Maybe LinkCommands should have a preamble method that is really part of the Joint.\
+A joint could call the preamble method in its two LinkCommands.\
+They would set the near end TimedVariable in the Link. Then the Joint could\
+DO the command itself or the job queue would call it. The rest of the command woud\
+move the data or space to the other end of the link  -  at leisure. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 26 November 2017 at PSU at 10:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 The problem with the simulator is that the Link wakes up two Joints when it passes data.\
+When filling a Link it should wake up only its destination joint.\
+When draining a Link it should wake up only its spruce joint.\
+I\'92m going to change the methods in Link to be Time fillable() and Time drainable()\
+rather than becameFull and becameEmpty.\
+The link has four states: Empty, passing data, Full, passing space, that circulate in that\
+Sequence in both simulation and simulacrum time. \
+So I\'92ve done it all except the source and sink joints.\
+I\'92m going to break for lunch at 13:00\
+\
+Back to work after lunch and groceries shopping at 14:30\
+I am going to work on the source and sink actions.\
+They could use the loop back Joint form, but I\'92m just going to store the time in the Joints.\
+I fixed the CopyAction. It had called the reference markers of both\
+Input and output then it fired, thus introducing extra tokens.\
+Now the flow is right, but the printout has some defects.\
+It needs a going over that\'92s too hard for me this late in the day\
+Quit at 19:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 25 November 2017 at PSU at 05:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Have revised the method of finding the best action to do.\
+It now goes through the actions in index sequence seeking the best one.\
+It does that to get the index number of the best action.\
+I\'92ve also done some work on demand merge.\
+I combined the Joint\'92s guard and fire actions into a method called wakeAndDo\
+I think guardIT and retryIT are no longer meaningful.\
+I made a new type of joint, OneInOneOutJoint.\
+It has no actions many places.  Why is that?\
+Quit at 10:15 to go home\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 25 November 2017 at home at 12:45:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to fix the printing of how many actions a joint has\
+I found that there were problems with the OneInOneOutJoint constructor.\
+Now fixed, so I get a network.\
+Quit at 13:30 to go to PSU\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 25 November 2017 at PSU at 15:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I switched to the FIFO test.\
+The source is flooding its output with instructions because\
+Emptiness of its output links seems not to be a condition for firing. \
+I think there is a bug in the conditions for fill and drain of links.\
+You can fill a Link only if it became empty BEFORE the fill command\
+There is something about the sequencing - the source cannot fire again before \
+I napped for a couple of hours\
+So I\'92ll declare that I finished at 17:00\
+(Actually was still at it at 19:40.\
+\
+Had some supper\
+Restart at 20:30\
+The source guard is more complicated that I have programmed.\
+A source will produce a new output only \
+	after all its outputs have become empty\
+	And then it produces its new output some interval after\
+	the last of outputs all became empty and\
+		either it\'92s after its start time or enough Time has passed since it last fired.\
+    \
+         AFTER some time has passed from the previous output and\
+\
+A source will produce a new output only after all of it\'92s outputs become EMPTY\
+And a certain \
+I\'92m too tired to work, so I quit at 21:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 24 November 2017 at home at 03:15
+\b0 \
+The forker fails to fire a second time.\
+I thought that all link actons would be in time sequence.\
+I had put a check into Link to test that.\
+I was wrong. \
+The round robin leaves until later actions in the other branches. \
+And so stuff after the round robin flashes back to times before first use.\
+\
+Can Links be filled twice without having been drained?\
+If so we must save their data in a Command.\
+pause to think about this dilemma while getting up at 04:30\
+\
+Resume at 11:30\
+I believe that because a Link can be used multiple times the content\
+of the Link must be held in some command.\
+Why not in the FillCommand if the Link is unable to fire immediately.\
+So the FillCommand with doIt if the Link is EMPTY, and ququeIt if the Link is FULL\
+Likewise the DrainCommand will doIT if the Link if FULL and queueIT otherwise.\
+I\'92m going to try that.\
+I\'92m going to save an image at this point - called ljSim-24nov17A\
+quit at 13:00 for lunch\
+\
+Resume at 13:45\
+I\'92ve tracked the action of the RoundRobinJoint and find that it\'92s being allowed to fire too early\
+I think the idea of separate actions may be flawed.\
+The idea of combining fork and join actions is certainly flawed.\
+Also, master clear of a RoundRobin fires off some link actions which is troublesome. \
+The reason is that the master clear fills the outbound link of the loop - shoule be inbound Link.\
+\
+I have fixed up some methods in TimedValue to facilitate Joint actions.\
+I think we need a kiind of Joint that comes with a loop appendage as inLink and outLink (0)\
+I think we should call it a MemoryLoopJoint. \
+It can then have a number of Actions tied to it.\
+E.g. an alternating fork, alternating join, RoundRobinForkAction, RoundRobinJoinAction, etc.\
+Telescope to come later.\
+I built the MemoryLoopJoint that makes the memory loop.\
+I built a RoundRobinForkAction class that uses the MemoryLoopJoint\
+It all compiles without error.\
+TO DO \
+replace RoundRobinAcion with RoundRobinJoinAction by eliminating the FORK stuff\
+Rebuild the example and see if I can make it work.\
+Quit at 18:30 for cocktails.\
+\
+Resume at 19:30\
+I got the index loop to initialize properly - the input to the MemoryLoopJoint is initialized to 1.\
+Now it runs quite a way, but then fails.\
+This is a harder debug.\
+Quit at 21:45 to go to bed\
+\
+
+\b 23 November 2017 at home at 06:15 [Tanksgiving]
+\b0 \
+I have a program that compiles properly without error.\
+I\'92m going to review the Command class structure. \
+At what level does the ability to sort commands kick in.\
+I also want to put in some checks in the Links: they should alternate fill and drain.\
+I put in soome Link checks as guards.\
+Not quite done with the pass space part.\
+Quit at 09:00 for breakfast\
+\
+Resume at 11:00\
+quit at 12:45 for lunch\
+\
+resume at 16:15.\
+I found that pass space failed to empty the value.\
+I have gotten rid of Link methods \
+	lindHasData, isFullAtOut, isEmptyAtIn, notEmptyAtIn, notFullAtOut\
+and replaced them with becameFullAt and becameEmptyAt\
+	each of which return a Time or null.\
+I gout the source joint to deliver a second output value.\
+Now the Link from the source to the round robin\
+Some problem with J7 not being able to acct the second time.\
+quit at 19:45 for supper\
+\
+
+\b 22 November 2017 at PSU at 10:30
+\b0 \
+I\'92m working on the two queue mechanism.\
+I think a Time is necessary only for the SortedJointCommand sub-classes\
+I think a TimedValue is necessary only for the LinkCommand sub class\
+So I\'92ll put a TimedValue on all commands\
+Quit at 11:30\
+\
+Resume at 14:15\
+I changed the name of basicB to components\
+There was some difficulty getting this to happen in Eclipse,\
+but I got that worked out OK.\
+Now I\'92m getting down to the real meat of the thing with the private Joint commands.\
+Quit at 16:00\
+\
+
+\b 18 November 2017 at PSU at 06:15
+\b0 \
+I\'92m working on the two queue mechanism.\
+I got he three kinds of Commands see out properly\
+Command has. Two methods called putInEarlyQueue and putInLateQueue\
+Command also has two matching methods called getEarlyTask and getLateTask\
+Ii had lost the ljSimulate Java code. Retrieved an old copy and at least I get printout.\
+I have no DemandMerge modules in my test object.\
+So I have to make a new setup\
+It\'92s after 9 AM, so I\'92m going to go to the market and then home.\
+Quit at 0900\
+\
+
+\b 18 November 2017 at home at 10:45
+\b0 \
+I need to have two sources. \
+I put parameter input to startTime and interval into SourceAction para\
+How am I supposed to sort SortedJointCommand when it carries no time. \
+I may have to rethink how data are passed out of Links and into Joints.\
+That Command represents the action at the Link-to-Joint interface.\
+It had better carry a TimedValue so it can be sorted.\
+This will make a MAJOR REVISION of the code and may simplify the code as well\
+break for lunch at 12:00 noon\
+\
+resume at 12:45\
+I need to get a time out of a command.\
+How do I do that?\
+I put a TimedValue storage place in each command\
+and a way to get the time from it.\
+14:25 I have a clean compile with the new stuff, but Sourc needs fixed.\
+quit at 14:45 it\'92s trying to drain an empty link.\
+I don\'92t think I checked  before draining the link - where hould the check be?\
+Nextt step is to look over the code that I have now.\
+\
+
+\b 16 November 2017 at home at 03:15
+\b0 \
+I made a class called CopyAction that merely moves data from an input to an output\
+break at 04:00\
+\
+resume at 6:15\
+quit at 7:20 to go to the doctor for my back.\
+\
+
+\b 16 November 2017 at PSU at 10:15
+\b0 \
+I\'92ve been working on a generalized move action.\
+Quit at 10:30 to talk with Warren Hunt and then Gary Deep\
+\
+
+\b 15 November 2017 at home at 05:45
+\b0  \
+Yesterday my back had a very painful cramp\
+Dr Shute put me on extra dose of medication (same as for knees)\
+Today the back is still a little sore, but less painful than yesterday.\
+I\'92m going to make the three subclasses of command\
+I got three classes defined LinkCommand, JointCommand, DoLastJointCommand\
+Command was spelled with three m\'92s = Commmand - hard to see, but fixed\
+Now I have to think through the queueing strategy.\
+Quit at 06:45\
+\
+
+\b 15 November 2017 at PSU at 11:00
+\b0  \
+I now think that a FCFS arbiter is actually a matter of scheduling, not an element.\
+I have a sub-class of command called DoLastCommand to use as \
+input to mutually exclusive actions of a Joint.\
+If properly scheduled so that everything else is done before it gets done, \
+FCFS in simulation time is the same as FCFS in simulacrum time.\
+I think that\'92s all there is to it. \
+I see a partially sorted event queue with three parts:\
+	Before\
+	Sorted\
+	After\
+Where the DoLastCommands are in Sorted and sorted in time sequence.\
+All other commends go either in Before or in After unsorted depending on time\
+If they are before the first entry in the sorted list or after it.\
+Don\'92t start on the sorted list until before is empty.\
+I think this implies that a source has to generate ALL of its events and queue\
+Them before anything else gets done. \
+So what\'92s wrong with doing everything that\'92s unsorted before doing any of the sorted things?\
+Just two lists, one sorted and one not.\
+That is OK provided the simulandum is free of self-perpetuating loops.\
+Quit at 12:30 for lunch\
+\
+Talked to Rajit Manohar at length -data storage for the network is the issue.\
+\
+Resume at 3:45\
+It appears that the input commands to a demand merge Joint. Can\
+be made sequential by the command schedular.\
+I still h ave to check if the other input has arrived at the very same time\
+and alternate if so.\
+Quit at 4:45 PM\
+\
+
+\b 13 November 2017 at PSU at noon
+\b0  \
+I plan to clean up the simulator today.\
+I\'92m going to delete the deprecated classes.\
+I\'92m aimed at getting the first-come-first-served code to work.\
+DELETED class When\
+DELETED class Commd\
+Moved the almost empty Arbiter class from jointPorts into parts package\
+DELETED the package called jointPorts.  -   there are no Ports\
+NOTE: the junction between a Link and a Joint is represented by a pair of Commands,\
+one pointing each way. \
+12:45 break for lunch\
+\
+Start again at 13:15\
+DELETED the package called chore\
+Quit at 13:30 for a long talk with York.\
+He wants to build a graph processor using async techniques.\
+\
+Restart at 15:00\
+I replaced DoLastCommand with the version from 5sep17\
+because I had screwed it up.\
+I managed to make two interfaces: SimpleInterface and DolastInterface\
+So instead of bothering with interfaces, I need three types of Commmands:\
+LinkCommand, JointCommandNow, and JointCommandLast\
+That will work.\
+Quit at 16:30\
+\
+
+\b 13 November 2017 at home at 03:30
+\b0  \
+I spent about two hours updating and revising the memos called is38 and is23\
+quit at 05:30\
+
+\b \
+07 September 2017 at home at 04:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I spent about 3 hours working on is38, a description of the code.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 06 September 2017 at PSU at 04:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I hope to do the fixing suggested in bold yesterday evening.\
+I made the two notFull and notEmpty methods in Link private.\
+That\'92s OK\
+I changed the Task queue to be a Deque so I can take items out of it in reverse order.\
+I avoided dequeueing items that fail their guard. They\'92ll get woken again later.\
+The long FIFO now works perfectly. \
+However, the sink sinks more data items than it\'92s allowed.\
+I have the use count in fire instead of in the guard were it belongs.\
+Also the wake up reports and the fire reports are in the wrong places.\
+I now have a reasonable print out for the linear fifo stopped by running out of sink\
+Try running out of source.\
+If I allow 6 source firings and 5 sink firings both run out together.\
+Now to try the round robin\
+The advance count value in round robin was confusing .isFullAt and isEmptyAt\
+things. When I fixed that it gets the proper output statistics.\
+Needs careful examination, but it seems to be working properly.\
+Quit at 09:17 to pick up Marly\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 05 September 2017 at home, 15:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 So the problem is that doing one command puts many commands on the queue\
+because the one command does it all the way through the FIFO.\
+There end up several wake up commands for the same Joint in the queue. \
+Dupli9cates in the queue are bad news. \
+Quit at 15:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Discussion with Marly reveals that \
+1) the questions a Joint can ask a Linkabout its fullness or emptiness \
+differ from those that the Link needs to ask about itself. \
+I have methods called notFull and notEmpty needed by the Link itself \
+and not by the Joint. I need to make sure that these methods are private \
+to the Link and that the Link avoids using the public isFull and isEmpty \
+methods
+\b0 .   (Dean: there seems to be no way to have a method in the Link\
+that is useable only from outside the Link. A \'93for external use only\'94 type\
+like public, protected, and private. \
+\
+
+\b 2) Links need allert only the Joint at the destination of a Link\'92s action.\
+Thus a passData operation should allert the output Joint ONLY, and\
+a passSpace operation shoould alert the input joint only.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 05 September 2017 at PSU, 11:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going first to add comments when Commands go onto or off the Queue\
+I changed the names of isFull and isEmpty to include the words in and out.\
+This is supposed to avoid confusion, but who\'92s in - the Link\'92s of course.\
+I have some trouble between the guard and the action in a Joint.\
+Should be easy to track down.\
+Quit at 1 PM to go home on the street car.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 05 September 2017 at home, 04:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I got caught by the difference between isFull (at the output end) and notFull (at output end)\
+and isEmpty (at input end) and notEmpty (at input end).\
+Fixed that and I got a run through the FIFO with queueing of the link drain commenads.\
+I\'92m now getting an error from a broadcast joint in the FIFO.\
+That should be tracable.\
+Quit at 07:15 to start the day\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 04 September 2017 at home, 01:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Can\'92t sleep, so I\'92ll work.\
+I\'92m working out the errors attendant with changing from When to Time.\
+Also the DO and doIT methods in Command are changed.\
+Making good progress.\
+I\'92ve decided that the Command has to do three things:\
+1) check the guards   (guardIT)\
+2) if they fail, get a time to retry   retryIT  and then queueIT\
+3) doIT a he time specified by guardIT\
+I\'92m working towards that goal - seems to fit OK\
+Quit at 05:30 to go for  groceries etc.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Resume at 07:00 after groceries and b\'92fast\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92ve been at this now for many  hours.\
+I have only a few errors left to fix, but it\'92s tedious\
+I\'92m up to RoundRobin action is about all that\'92 left to fix.\
+Quit at 11:45 for LUNCH (and a nap)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Resume at 14:00 after nap
+\b0 \
+It\'92s 17:30 and I\'92m able to start the FIFO test.\
+I get a damanged Link report.\
+improper initialization - fixed.\
+Now the first link accepts the first value and then dies.\
+Quit at 18:30 because that\'92s enough for today.\
+\
+
+\b 03 September 2017 at home, 04:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 From and email to Warren and Marly:\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 Tom Rondeau seeks further information, asking:\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 "what you've accomplished with the Java simulation (and results or\'a0
+\b0 \
+
+\b description of it working?)\'94.
+\b0 \
+Marly has also asked why I spend time and energy writing a Java simulator.\
+\
+When we talk about the actions of Links and Joints on the whiteboard\
+we usually follow the progress of a single data element through a pipeline.\
+Then we go back to follow the progress of the next data item and so on.\
+We wisely avoid thinking about the sequence of events separated in space.\
+In effect we look at the \'93horse race\'94 from the point of view of a Jockey rather\
+than from the viewing stands.\'a0\
+\
+The flashback simulator attempts to automate such simulations by simulating\'a0\
+out of order. The flow of simulated time need not be monotonic with the sequence\
+of simulation. I call this a "flashback simulator\'94 because the simulator occasionally\'a0\
+flashes back in time to pick us some thread of work it previously neglected.\'a0\
+\
+This turns out to be remarkably hard to think about flashback simulation because\
+there are two quite different streams of time to hold in mind at once. Imagining\'a0\
+how such a similar works requires thinking concurrently (in mental time) about\'a0\
+both\'a0
+\fs28 simula
+\b tion
+\b0\fs24 \'a0and\'a0
+\fs28 simulan
+\b dum
+\b0\fs24 \'a0time. There\'92s the flow of action being\'a0\
+simulated,\'a0
+\fs28 simulan
+\b dum
+\b0\fs24  time and the flow of the simulation itself, in\'a0\
+
+\fs28 simula
+\b tion
+\b0\fs24 \'a0time.\'a0\
+\
+I set about making a simulator in Java faithful to our latest view of guarded\'a0\
+actions in Joints, as articulated by Marly, for three reasons:\
+1) to build a concrete model of guards and actions in Joints, and\
+2) to model faithfully the transmission delay through each Link, and\
+3) to learn how to think about following data forward locally.\
+Several versions of the simulator have worked partially.\
+\
+Representing the Link and Joint topology is easy - I have code to produce\'a0\
+useful topological examples. One example is a simple linear pipeline from\
+a periodic source Joint to a sink Joint that absorbs every data item received.\'a0\
+Another example interposes a round robin fork and a round robin join so that\
+three pipelines operate in parallel, each carrying every third data item.\
+\
+I\'92ve made major revisions several times, evidence that my simulator is giving\
+intellectual if not yet simulation results. There are several hard questions:\
+A) How much action is atomic?\
+\'a0 \'a0 Each Joint action and half of its adjacent Links.\
+B) Where should the simulator store partially computed results?\
+\'a0 \'a0 Indeed, what are partially completed results?\
+\'a0 \'a0 In which time frame are they partially completed?\
+C) Must each partially completed result carry a\'a0
+\fs28 simulan
+\b dum
+\b0\fs24 \'a0time stamp?\
+\'a0 \'a0 This I hope to avoid.\
+D) How to simulate Demand Merge?\
+\'a0 \'a0 Working on Demand Merge has initiated most of my major revisions.\
+\
+A Demand Merge Joint passes data on a first-come-first-served basis.\
+If only one data item arrives, it should pass. If both inputs arrive, the first\
+(in\'a0
+\fs28 simulan
+\b dum
+\b0\fs24 \'a0time) to arrive should pass. Unlike every other Joint,\'a0\
+the simulator cannot proceed past a\'a0Demand Merge upon first arrival,\
+because first arrival to be simulated may not be earliest in\'a0
+\fs28 simulan
+\b dum\'a0
+\b0\fs24 \
+time. An in-order simulator would sidestep this problem and thereby teach\
+us far less.\'a0\
+\
+At and only at a Demand Merge the simulation may pass a single data input\'a0\
+only when sure that later simulation cannot reveal earlier arrival of data at the\'a0\
+other input. My quest for a tidy implementation of Demand Merge led to three\'a0\
+major revisions.\'a0\
+\
+I\'92m gaining practice with keeping two time streams in mind at once. I anticipate\'a0\
+that the knowledge gained will be far more valuable than the simulator itself.\'a0\
+I expect that the knowledge will pay dividends for the Formal Verification of\'a0\
+self-timed systems.\'a0
+\fs28 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+I sent off that email this morning before starting on the simulator.\
+I\'92m working to get some small parts of it running again.\
+The Journal Command will give me some grief \
+Quit at 04:30 to take a bath an think.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 03 September 2017 at home, 06:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I came to some conclusions.\
+First, the DO metnod in Command is just a way to start a process.\
+I should carry neither time nor value.\
+Time and value must be carried together through Links.\
+The guard of an action should not only find out that all inputs are occupied,\
+but compute the last occupancy time - it\'92s an and function, after all.\
+Likewise the time that a Link became empty must also be available\
+at the Link\'92s input end. \
+Do I want a value to carry a validity time? I think so.\
+Then emptiness, which is a Value with NULL data also has a validity time.\
+I think I also want to make a simple Time class to replace When\
+which as a range of times.\
+For Value I\'92ll make a new class called TValue with both time and value.\
+Then the big changes to DO which will no longer carry a time or value.\
+I\'92m having troble thinking about this.\
+So I\'92m going to quit at 09:15\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 02 September 2017 at home, 13:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I think that the DO in Command should return a boolean.\
+If the Component can do the job right away it should do so.\
+If not, it should queue the job.\
+I also want to fix the Job Queue to be three parts:\
+	A do these things before doing the sorted stuff\
+	B do the sorted stuff in order\
+	C do this stuff last (Will move to A when B is empty)\
+That\'92s a simpler way to keep the DoFirstComands.\
+I\'92m making major revisions:\
+	1) class Chore will be absorbed into Command and simplifier\
+	2) All action commands return a boolean if they have to be queued\
+	3) Delay is giving way to When as the thing to pass around time.\
+Now I\'92m wondering who is responsible for reQueueing a command tht wan\'92t done.\
+Quit at 17:30 for supper.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 01 September 2017 at PSU, 05:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I had the key idea in the night.\
+Links will pass data along by calling subroutines instead of by the Chore mechanism.\
+Joints, on the other hand, will be woken by their wakeUp commands.\
+Some Joints will be woken by DoLastCommands.\
+So now to put that into operation . . .\
+\
+I did, but now there\'92s another problem.\
+The program asks a Link \'93are you full\'94 (now)\
+But the state of the Link when asked (in sulation time) may not be correct \
+for the simulacrum time at which the question is being asked !\
+I see what\'92s wrong - the Commands for each Component must be sequential.\
+A component\'92s trail of commands may be arbitrarily long, but\
+They must be ordered by Component and they must carry the relevant data. \
+\
+11:17 after discussion with Chris Cowan  I realize that I need to\
+Leave a chore about draining the Links as well as passing.\
+Well I put that in and behavior is much the same.\
+I think I need to simplify the Chore list next.\
+Quit at 12:20 to go home\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 31 August 2017 at PSU, 10:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I want to understand how doIT and queueIT interact.\
+I need to trace how delays are added up.\
+Quit at 11:45 for Lunch and nap\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 31 August 2017 at PSU, 13:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I think the JointCommand has to return a boolean saying whether a guard failed. \
+What about the LinkCommand?\
+How do I know if the simulator can blast forward?\
+What marks the end of a string of commands to execute?\
+A link passing data initiates a forward and a backward call. \
+Only one should be done immediately. \
+Maybe the DO commands should carry a time rather than a delay.\
+Then the simulator would proceed as long as time is advancing.\
+I think I need to redo Chore and Commd to make them simpler.\
+The Chore list is just partly sorted and early unsorted.\
+The sorted part lies between two unsorted parts, say A S B\
+Do everything in A until it\'92s exhausted. \
+DoLast Chores wait until list A is exhausted. \
+New chores go onto A if they are before the first of S onto B otherwise.\
+When A is exhausted we start of S etc.\
+Quit at 14:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 30 August 2017 at home, 07:10\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I realize that the Link is in error.\
+When you fill, it should soon thereafter wake the sourc Joint because it\'92s no longer empty.\
+I also want to keep track of how many wakeups die before doing anything.\
+Wakeup and act are now both reported. \
+I moved the makeAloop code into the joint factory. \
+Making a linear FIFO to test the latency issues.\
+OK but I made the methods in JointFactory static. \
+There need be no instance of JointFactory - indeed its constructor is never called.\
+So the linear FIFO works but doesn\'92t show off the flashback simulator. \
+Quit at 08:30 to go to PSU\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 29 August 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I worked at home on the Simons fondation proposal write up, is-32\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 28 August 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I worked at home on the simulator write up, is-32\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 27 August 2017 at home, 05:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I slept 7 hours so I\'92m still a bit groggy.\
+I think I\'92ll take the initialization of the round robin Joints out of Master Clear.\
+A separate initialization step will be reqired.\
+I changed the name structure to put the basic part name first.\
+It turns out that unwind the chores gets some chores twice - \
+   only one was counted as being put on, but it is in the list twice.\
+When a new SimpleChore gets made it is put on the do list.\
+Then it gets put on the list again as the SUPER call to Chore.\
+only Chore should add it to the list.  FIXED.\
+Now the round robin fork at J3 fails to get a value from L6,\
+but its guard claimed to be OK. How can that be?\
+I had used isFull() where I meant not isEmpty().\
+isFull talks about the output end, isEmpty talks about the input end of a Link.\
+Marly has made this point several times. \
+Max chore list size is way too big. Was chores pending ever decreased?\
+Now it is.\
+Source joint has not indicated enough firings.\
+Quit at 08:30 for breakfast\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 27 August 2017 at home, 10:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I quickly discovered that the forkJoint failed to drain its input link\
+because the moveData routine failed. Fixed that and now all seems OK.\
+\
+I revived the earlier test of twin FIFOs and discovered a bug in the broadcast action.\
+It failed to drain its input data link - FIXED.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 I took a break for an hour.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 Quit for lunch at 1:00 PM\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Nice lunch of fresh salmon and fresh corn.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 27 August 2017 at home, 16:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to work on a new version of the write up, now that I know more.\
+Quit at 18:00\
+\
+\
+\
+At last I can start on the arbiter stuff. \
+First is to make a demand merge setup.\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 26 August 2017 at home, 02:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 If I\'92m going to fuss with Chore, I must understand how Command and Chhore interact.\
+Quit at 03:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 26 August 2017 at PSU, 04:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 The car is charging on P2.\
+I fixed Chore up so it can handle either a Command or a Comma\
+I named PriorityChore to be DoLastChore\
+I fixed many aspects of Chore.\
+It now seems not to put Chores in the proper place on the shortlist.\
+Quit at 0800 to go to the Farmer\'92s market\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 26 August 2017 at home, 10:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 After Farmer\'92s merket.\
+I\'92m going to trace what happens when a Joint fires.\
+I found out that Links were not properly allerting their Joints about full and empy.\
+With that fixed it seems petty good, but I don\'92t think it\'92s appropriate.\
+I faded out at about 11:00 AM\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 26 August 2017 at home, 15:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m exploring the behavior of the test.\
+For some reason Link L1 and Link L3 get two fill commands.\
+One comes from master clearing the Joints.\
+Where does the other one come from?\
+Maybe when the loops are made they should be made with full data in them.\
+Quit at 17:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 25 August 2017 at PSU, 11:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m thinking about having two kinds of Commands - JointCommands\
+And LinkCommands. \
+Joint commands would carry no data, Link commands would carry data.\
+Link commends would drop their data into the link before being sequestered.\
+Joints and Links would have a private constructor for their commands.\
+Would this actually be an improvement over what I\'92ve got now?\
+\
+I think I should get the program working again before making further changes.\
+So that\'92s what I\'92m going to do.\
+It now assembles OK, but doesn\'92t properly pass data.\
+Well is ran a little bit.\
+I didn\'92t get J-3, the fork joint to fire.\
+Why was that?\
+I need more print to from the Joints so I can track what\'92s happening.\
+Quit at 1:00 to go home.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 25 August 2017 at home, 15:05\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 The latest file is ljsim25aug17 with no suffix.\
+I decided to work at home so I can have a beverage and nap if necessary.\
+It\'92s a lovely day.\
+\
+I\'92m going to put in wake up messages in both Link and Joint.\
+Well there\'92s a problem with fillMe, passMe, and the commands.\
+So I\'92m going to make the LinkCommand and the JointCommand change right now.\
+I rolled back to this morning\'92s Command to preserve the Journal Command stuff.\
+I\'92m going to base the Link and Joint stuff on a new class called Commd\
+I got that done except for a few compilation errors.\
+Compilation errors in Chore will have to be fixed.\
+Too tired to do it now, so I quit for the day\
+Quit at 17:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 24 August 2017 at home, 06:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I slept 7 hours straight.\
+I\'92m rolling back to the version called 20Aug17U which is the latest version that still worked.\
+Trying to make two kinds of Commands was a mistake.\
+I\'92m going merely to add an extra method to the fill Command in Link that\
+dumps it Value into the Link\'92s input store and then calls DO witout a Value.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 after rollback\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m first going to add the DO with Value to the FillCommand of the Link\
+This ammounts to splitting the Link\'92s fillMe method into two  parts:\
+one that takes a value and the other that takes a delay.\
+the version to shich I rolled back seems to store a list of Links in its Joits.\
+So I have to fix the type of lists in Joint.\
+What about in Link?\
+I changed the lists in Joint to be Commands.\
+For other reasons I have to make the Link\'92s FillCommand and DrainCommand public\
+So I\'92m going to specialize the Joint\'92s lists to those kinds of commands.\
+Break for breakfast at 07:30 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 24 August 2017 at PSU, 15:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 This morning I changed the Joint to have a list of 
+\f1 \cf2 inputDrainCommands
+\f0 \cf0 \
+and a list of 
+\f1 \cf2 outputFillCommands
+\f0 \cf0 \
+That helps me keep track of which is which, but it doesn\'92t help the Java code.\
+So I think I need to have distinctive NAMES for the lists, but each needs to be\
+Just a list of Commands.\
+I made the two Link Commands private again.\
+It\'92s a trade off between Joints storing pointers to Links vs Link commands.\
+Quit at 17:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 23 August 2017 at home, 03:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to try again to put a method in th Link input command.\
+The present class Command command will become a PlainCommand\
+a new parent class Command will appear\
+and a new subcalss called DataCommand will appear.\
+This became a mess because chore then needs to know what kind of command.\
+I think the simplest thing to do is to go back to this morning\'92s files\
+and make all commands DO(Delay d, Value v) and just not use v when inappropriate.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 after rollback\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I put both kinds of DO in the commandInterface\
+That seems to let me make progress.\
+Quit at 05:15 because I have much to do.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 I think I can do the DemandMerge joint by making the wake up calls\
+  To DemandMerge Joints use the priority commands. That way\
+The entire Joint will happen only after the commands have caught up.\
+But I won\'92t start on that until the DataCommand is working.\
+\
+22 August 2017 at PSU, 05:45
+\b0 \
+The car is drinking electricity in the garage.\
+I didn\'92t finish reinstating the data-bearing command to fill the Link.\
+I\'92m going to finish that this morning.\
+Who carries the value from the Joint to the Link when filling the Link?\
+A) The command itself could carry the value, delivering it when the command is actually done. \
+That is absurd, because the Command is created to connect the Joint to its output Link.\
+B) the method in the command can deliver the value when executed. \
+I see that when creating a Command the Command need not \
+  carry the data value, or the command could have a separate data\
+delivery method built into it.\
+Quit at 11:45 for lunch\
+\
+
+\b 21 August 2017 at PSU, 11:07
+\b0 \
+I want first to change the sequence of dealing with the roundCount\
+and the moving the data.\
+That should permit longer runs of action.\
+It doesn\'92t seem to.\
+I have to be careful about where to insert the fire messages -before or after all the actin.\
+I think fire messages should come early.\
+\
+Now I\'92m going to reinstate the use of DataCommand\
+Got that partly done when lunch happened\
+Quit at 12:15\
+\
+
+\b 20 August 2017 at PSU, 07:00
+\b0 \
+Well, the car is carrying in the garage.\
+Today I want to check that everything so far is working.\
+If so, I\'92ll get arbitration working.\
+Delay constants has not been used in a VERY LONG TIME!\
+I changed to using the advanceCountValue method in RoundRobinAction.\
+It had failed to drain the link from which it got the count.\
+So now it runs OK with Link filling and draining shown and Joint firing shown.\
+\
+So I can now work on the demand merge process.\
+I deleted all the .class files - that caused some trouble with Eclipse\
+So I started a new project\
+I made a class called DemandMerge\
+I\'92m puzzled by the PriorityChore, the Arbiter, and the DataCommand.\
+I don\'92t think I ever pass data in a command.\
+Quit at 10:06 for breakfast\
+\
+
+\b 20 August 2017 at home, 11:15
+\b0 \
+I failed to change the name of ljsim-20aug17 to have the U suffix.\
+Instead I\'92m going to rename what I brought home from the university.\
+It may not be exactly what\'92s left at the U, but it will serve.\
+\
+I suspect that data don\'92t ever move with commands, even to fill a link.\
+Indeed, it is so, but it should be straightforward if not simple to reinstate\
+the DataCommand mechanism of filling Links.\
+The output links of Joints should point to the Link\'92s fill command \
+rather than to the Link itelf.\
+I\'92ve been working on the memo called is32 to help me understand all this stuff.\
+Quit at 16:15 to take a break before making changes.\
+\
+
+\b 19 August 2017 at home, 05:30
+\b0 \
+data values are not getting through the fork and join Joints.\
+The problem is that I pass both Delay and Value with each action call.\
+The wake up calls should pass only a time at which the wakeup happens.\
+The data value should be passed with the fill and join actions only. \
+Link draining should involve no data.\
+This is a 
+\b major revision
+\b0 .\
+I removed the Value from the Link drain method.\
+I removed the Value from the fire routine in Action\
+The action will get data from the Links.\
+So I fixed all that and it seems now to pass the data correctly.\
+Perhaps the command has no business passing a value at all - it just starts things happening.\
+This is a 
+\b major revision
+\b0 .\
+There is one unsolved  problem. Link.fillMe needs to convey a value.\
+How and when does if make the lLink.value be other than null.\
+Well !\
+That\'92s all done and it seems to work.\
+But I need to fix the comments at the front of every class \
+and I need to do a writeup for the whole simulator.\
+Quit at 06:30 to get up\
+\
+
+\b 18 August 2017 at home, 05:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m gong to make a special guard and fire for the loop fifo\
+around round robin joints.\
+The topology appears to be OK.\
+There is an initialization problem\
+and I need loopGuard and loopFire in clase RounRobinAction\
+Quit at 06:50 to shower\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 18 August 2017 at PSU, 09:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I realize that the loop links must be initialized as part of the Joint master clear action.\
+I\'92ll fix that now\
+Quit at 12:00 for lunch\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 18 August 2017 at PSU, 1:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Some joint fails to fire\
+The RoundRobinJoin makes the wrong circumference.\
+The fork and join round robins might have different circumference.\
+I fixed that.\
+Now the value that\'92s being sent around fails to be the right one.\
+The value goes through the one-in-on-out Joints properly\
+It may not go through the fork and join Joints properly\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 17 August 2017 at home, 06:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to review the roundRobin fork and join\
+I did, and they seem OK now.\
+I\'92m constructing the topology of a round robin FIFO.\
+The link names are NOT UNIQUE.\
+That must be fixed\
+\
+Took 30 min for breakfast - I\'92m very hungry\
+Quit at 09:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 17 August 2017 at PSU, 10:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 The code builds something, but there are links with no parent,\
+And the loop links are not installed. Some simple fixes needed.\
+Quit at 10:25\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 17 August 2017 at PSU, 14:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to be sure the topology of the test circuit is right.\
+I fixed some plurals so we get \'93s\'94 on end when count > 1.\
+The loop FIFOs are only one link - NEEDS FIXED\
+And must be primed with an initial value.\
+Quit at 17:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 16 August 2017 at home, 08:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I assembled the RoundRobin stuff including a RoundRobinAction\
+And the RoundRobinFork and RoundRobinJoin\
+They may not yet be correct (indeed they don\'92t use the loop link properly)\
+   but they are there now.\
+Quit at 09:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 16 August 2017 at PSU, 11:15\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m going to work on the RoundRobin stuff.\
+I got the topology of the wig-wag to work properly\
+Quit at 12:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 16 August 2017 at PSU, 16:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I had omitted using the loop link to carry the position of the round-robin,\
+Using code instead. So I want to get that fact stored in the loop link.\
+I\'92m started on that process.\
+Quit at 16:45\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 16 August 2017 at home, 19:30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Marly reminded me that we need a joint inside the loop link.\
+So I\'92ll fix that part.\
+Quit at 20:30 for supper\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 15 August 2017 at home, 05:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I need to fix the getNextChore code that pulls chores out of the 15.\
+I have a test routing in class Chore that unwinds the core list.\
+But it fails .\
+Tracking down why.\
+Quit at 07:30 for breakfast\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 15 August 2017 at PSU, 10:45\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I am working on the unwitting code for the chore tree.\
+Te Chore tree was improperly made.\
+I fixed the constructor for ChoreHolder to put in an initial Chore\
+    If the Chore is Priority it goes in the bigChore, else it is set up in the little chores. \
+Now the priority tree seems to be properly built with the quit command at the very end.\
+The FIFO simulation appears to work, but the firing reports are wrong.\
+Should the Joint or the Action report that it\'92s going. \
+The question is whether Joints fire or Actions fire. \
+There is a mixed idea here. \
+Actions will fire, not Joints, and so Actions have to report the firing.\
+Actions now report properly.\
+I have an example of two FIFOs running in parallel.\
+Now I want to make the roundRobin FIFO.\
+A roundRobin action can carry two subforms for singleIn and singleOut.\
+I got started on making it as wig-wag.\
+Quit at 17:28 but I took an hour out for lunch.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 14 August 2017 at home, 07:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 The checkTopology code in the Joint found a bug in buildFIFO.\
+I corrected the build FIFO code.\
+The FIFO now runs with zero delays, but it stops only because the sink run out.\
+I need to track down why the source doesn\'92t also run out.\
+The Links should report how many data items they transported.\
+Much seems to be working again.\
+Quit at 08:00 for breakfast\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 14 August 2017 at PSU, 13:15
+\b0 \
+I will see if I can simulate of a FIFO.\
+Didn\'92t manage to get it to start properly\
+Quit at 16:30\
+\
+
+\b 13 August 2017 at home, 09:05\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I aim to get a source and a sink playing together.\
+I changed the name of ComponentTest to Comp\
+I got a FIFO to connect between and SourceJoint and a  SinkJoint.\
+It i made of BroadcastJoints with one-=in and one-oout each.\
+Quit at 15:00 but I worked only about 4 hours - there were many interruptions\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 12 August 2017 at PSU, 12:45 PM\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I\'92m clearer about how the guards work\
+I made an Action class that has two methods: guard, fire\
+The idea is that a Joint is made into a specific type by the action() one attaches to it.\
+The joint asks each of its actions if that action is ready - and check that there\'92s only one.\
+Then it first that action.\
+The guard action returns false if the conditions are not right.\
+The fire method returns false if the action is impossible for some other reason.\
+Quit at 14:00\
+ \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 11 August 2017 at PSU, 3:00 PM\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Reviewing the classes before adding an Action class and a Guard class\
+I\'92ve decided to just have a Joint and a Link class.\
+I\'92ll keep the Command and LinkCommand sub classes for now.\
+I made new classes called Action and Guard to conform with the new Joint model.\
+I have comments that describe how the topology is represented.\
+Quit at 17:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 09 August 2017 at 3:00 PM\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I want to express in Java the structure of Joints.\
+Each joint has a collection of input links and a collection of output links.\
+A Joint has several Actions it can do.\
+Each Action has a Guard that says when it can go.\
+Each Action does something, presumably useful.\
+\
+I suppose I\'92ll just, at first, add a bunch of code because I don\'92t know what to delete.\
+\
+I reviewed the LinkType and JointType classes and make minor changes.\
+Quit at 4:30 PM\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 11 July 2017 07:00 at home.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I accomplished nothing.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 11 July 2017 11:11 at PSU.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I think I need a WHEN that is always LATER than everything.\
+Maybe call it eternity.\
+When finally reached it will quit the simulation.\
+I'm trying to use Long.MAXVALUE as the means.\
+So far no luck.\
+Quit at 12:41\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 10 July 2017 09:00 at PSU.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I got the   printer for the jobQueue to work.\
+The test case we now have prints correctly.\
+\
+a discussion with Chris, and Chris about how to specify what's not spacified.\
+Chris Chen wrote some notes.\
+\
+Quit at 12:00 - but count only 1.5 hours to coding.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 07 July 2017 04:45 at PSU.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I'm picking up where I left off yesterday.\
+We have ChoreHolders that do the before and after stuff.\
+I'm confused a bit, but there are only 4 errors.\
+Still needs cleaning up\
+Quit at 06:00 to go for groceries\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 06 July 2017 06:15 at PSU.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I thin I now know how to add stuff to the ChoreQueue\
+Some reorganization\
+Quit at 0817\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 05 July 2017 at PSU.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start serious stuff at 15:00\
+but I didn't do much coding. \
+Today was a day to think about what was going on.\
+Quit at 16:00\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 05 July 2017 at home.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 05:00\
+I shall make a class called ChoreQueue.\
+It might have a priority sub class that must have a PriorityChore as the first element of the queue.\
+I don\'92t know if a method can change the class of a parameter.\
+Quit at 06:25 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 04 July 2017 at home.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 08:00\
+I think I could make a tree of chores.\
+Each chore will h ave to doBefore and a doAfter list.\
+A new chore will be put into the root\'92s lists according as to whether it\'92s before or after that chore.\
+If a n ew chore is before the root, we\'92ll attempt to add it to the before list\
+if the new chore is after the root, we\'92ll attempt to add it to the after list.\
+Each case of adding will examine the first element in the list, and if before, put on it\'92s before list. \
+It will go on the ed of the list if it\'92s after the time of the first chore on that list. \
+Quit at 08:15 for breakfast\
+\
+Resume at 11:00\
+I understand the priority Queue after a conversation with Dean Sutherland\
+Quit at 14:45 for lunch\
+\
+Resume at 16:40\
+I\'92m going to try running the new Chore thing.\
+I can print out the chore tree now.\
+Quit at 19:00 for cocktails.\
+\
+Resume at 23:00 because I can\'92t sleep.\
+There should be a class called ChoreQueue\
+which is a simple Queue of Chores.\
+It has a Queue interface including peek, add and remove.\
+It has a sub-class called PriChoreQueue as in Priority.\
+That class always starts with a priority Chore that has two ChoreQueues.\
+the add method must be able to change the ChoreQueues from plain type to priority type.\
+How do I do that. \
+I think I can write a variable given to me because it\'92s call by name.\
+That\'92s all I have to say for now.\
+Quit at 23:15\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 03 July 2017 at home.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 14:15\
+Why does the sorted cohore have to be a separate class?\
+All chores could have a doFirst list to be done before they can complete.\
+It just might be empty.\
+Quit at 2:40 for a nap (of three hours.)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 23 Jun 2017 at hotel\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 06:15\
+I\'92ve decided that there\'92s a sub-class of Chore that is SortedChore.\
+SortedChore has a list of chores that must be done before they can be done.\
+The SortedChors go on the toDo list in sorted order.\
+A new SortedChore grabs the entire existing toDo list the must be done before it.\
+That\'92s all well, but I don\'92t have a java editor of any kind, so I have to work elsewhere.\
+Quit at 06:30 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 21 Jun 2017 at home\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 0445.\
+I fussed with the printouts for statistics.\
+It all seems to run.\
+ \
+I need to make the mutual exclusion input port.\
+It has two inputs and one output, alerting its Joint for any input.\
+It will have to wait for the simulation to catch up.\
+If the toDo list is unsorted, what does \'93catch up\'94 mean?\
+This is too hard to do this morning.\
+Quit at 0600\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 20 Jun 2017 at PSU\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 09:15\
+I'm going to fix the number ready in the output and input many ports.\
+I quit about 10:30 frustrated\
+Working again after strategy talk with Warren and Marly.\
+I fixed the problem of when the next chore starts before this one is done.\
+THAT'S JUST A FLASHBACK\
+It now says so and seems to work OK.\
+Quit at 16:15\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 20 Jun 2017 at home\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 0500.\
+Te cure to not enough source tokens is simple.\
+Whenever the source Joint has fired, it should test its output links for \'93read\'94\
+which means that the output links are empty.\
+If so, it should fire again. If not, it can wait until wokenup by\
+one of them becoming emptuy.\
+\
+I\'92m going to implement that.\
+I did, but it brings up the question of when the sources output links actually become full.\
+fillAll merely sets in commands that WILL fill the links when they get done,\
+but eady actually checks whether the links are full.\
+This bug involves the subtle difference between simulation time and simulandum time.\
+I\'92ve got to think more about this one.\
+I\'92m goint to quit so I can think about it.\
+\
+It needs to record the number who have announced their readyness since\
+the last time I filled them.\
+Quit at 0600\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 19 Jun 2017 at PSU\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 11:00 AM\
+I realized last night that arranging the Ports to be first divided by how many Links\
+and then by Input o output would gather mre stuff together.\
+However, it's not forth changing now.\
+So I'm going to get to the bottom of how the simulation actually goes.\
+I learned that not much gets queued.\
+I put in a maximum queue size and printed it out.\
+The source doesn't produce enough new tokens, sot\
+the queue runs out.\
+It needs a way for the source to wake up every so opften\
+\
+Quit at 12:000\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 18 Jun 2017 at PSU\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 10:45 AM\
+I'm working on getting the program to work after making manor class changes.\
+Well, I tracked down a few trivial bugs and now it seems to work again.\
+I'm going to use oneInOneOt joints in the FIFIO to test them\
+\
+I fixed a bunch of formatting things.\
+I got a Chore error, ie's doing a Core that's before NOW.\
+That should be OK, but the Chore list is not sorted, so\
+with concurrent things going on, this could happen,\
+Quit at 17:30 for dinner\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 18 Jun 2017 at home\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 0500.\
+I hope to get a lot done this morning.\
+Quit for shower at 07:15\
+\
+Resume at 07:45\
+Quit at 0(:00 for breakfast\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 17 Jun 2017 at PSU\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 05:15 with the car charging in the garage\
+I'm going to reorganize the packages as follows:\
+basicA will hold \
+	Delay\
+	Value\
+	Messenger\
+	when\
+basicB will store various component stuff\
+	Component\
+	ComponentTest\
+	LinkType\
+	JointType\
+JointPkg will hold all the joint stuff but not the Ports\
+JointPorts will  hold the various ports\
+DONE and  it still works\
+\
+I made abstract super types called JointInputPort and JointOutputPort\
+to hold the private commands for input and output ports.\
+Quit at 8:30\
+\
+THE 17 June afternoon session is missing from this file\
+and from all others as well\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 16 Jun 2017 at PSU\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 15:15 -  today was PSU Commencement so I'm late\
+The program still runs and seems to be free of error.\
+\
+I've decided that the coupling from a Joint to its JointIOgroups should e by Chore.\
+That's necessary for the arbiter type of inputGroup because it can't be sure who done until later.\
+I suppose the return has to be the same, i.e. the I/Ogroup is an intermediate or\
+between Links and Joints. I guess that's what we called a port in 1997.\
+I'm not 100% sure that's best, however.\
+How initiate are the IO goups with the Joint?\
+The Joint makes a call to an IO group to fill or drain its links - not queued.Why does everyone have to suffer because the arbiter does?\
+Maybe I'll put that  queuing task in the arbiter instead.\
+\
+Today I'm going to review where things are in the class hierarchy.\
+Got essentially nothing done  because working with Swetha\
+Quit at 1614\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 15 Jun 2017 at home\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting at home at 04:45\
+Can Link status messages be sent to the LincCommandGroups?\
+Yes, they can. Now the Joint is allerted only when all input links are full\
+or all output links are empty.\
+It then checks the oter and fires if all OK.\
+Statistics of the action aren\'92t very good.\
+Moreover, the action dies promptly. \
+Joint is the parent class for SourceJoint and SinkJoint.\
+I suspect that SourceJoint and SinkJoiint should be at the same level as Joint\
+and Joint should have a different name. \
+Quit at 09:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 15 Jun 2017 at PSU\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Start at 10:30\
+Break for lunch at 11:00\
+Start again at 12:30\
+I got the FIFO to work. \
+It will stop when source or sink run out\
+or when too many Chores are done.\
+It all seems OK now.\
+Quit at 12:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 14 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting at 07:30 at PSU\
+I looked again at the old Path Place Port simulator\
+Paths have two pints,so I think they are Links\
+Places is the parent of Joint, so I think Joints are the iI/O for Places\
+and Places are what we now call Joints.\
+I feel the need for an I/O thing for Joints, to collect\
+the input and output actions.\
+For example the arbiter is basically an input collector.\
+Should the input and output collectors for a Joint call it through the Chore mechanism.\
+What, then, is left for the Joint code itself?\
+How about  Joints the need values but don't disturb them?\
+\
+How does the First Come First Served mechanism work?\
+Am I trying to generalize too much?\
+\
+I built a new class called ListCommandGroup\
+and two sub classes one for input one for output.\
+I fixed Joint to use the groups.\
+This saved a bunch of code because no the iteration functions are shared.\
+It runs the FIFO example OK.\
+Now its time to go home - 17:00\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 12 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Working with xxxx at PSU\
+Start on the Arbiter = first come first served 11:45AM\
+Quit at 16:30\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 10 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting at 04:15 at PSU\
+I think I can put to gather a topology.\
+I want to make the full precision floating point.\
+For that I will need a mutual exclusion element.\
+I wonder how to do that.\
+First to get the FIFO simulation working.\
+The first step is to understand the Muller C\
+I should change the messenger code number o something understandable\
+MullerC is not an arbiter. \
+I wonder where the arbiter code is - I don't seem to have it  here. \
+I've moved simLog.rtf higher in the file system.\
+I'm starting actually to simulate.\
+I find that the Joint doesn't have he proper fire code in it.\
+It got new data from one of its input links.\
+Now the sink joint doesn't fire.\
+I seem to h ave the FIFO running properly\
+The FIFO simulation seems to work.\
+Multiple events are going down the FIFO.\
+Values area all numeric - should be symbolic - TO FIX\
+Quit at 0900\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 10 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Back at work at 15:30\
+I'm going to make a Value that carries a text value.\
+I'm trying to print statistics for the run. It almost works\
+Quit at 17:30 for supper\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 9 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting at 11:12 at PSU\
+Chris Chen suggests using the Set class to check for duplicates in the Lists.\
+That seems remarkably easy.\
+I implemented the Set use to check for duplicates - works fine.\
+I also put in code to trace each connection to a joint to see that\
+it comes back to the joint. \
+Two way pointers are checked.\
+Done at 4:30 - but there were meetings and lunch, so count this \
+session as 2 ours at most.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 8 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting at 04:10 at home\
+The topology of joints results in an error because the Source and Sink joints\
+don\'92t have both input and output command lists.\
+I fixed the source and sink joint.\
+I still have problems in making a FIFO.\
+Somethng is wrong with my Factory.\
+Quit at 05:30 to talk with Rajit.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 8 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting at the university at 11 AM\
+I got th length 5 FIFO to print its topology properly.\
+Need a check topology routine.\
+Break for lunch and administribia 12 - 14\
+The minimum check, I think, tests that \
+1) each each joint has only one connect to any particular Link  \
+2) each joint connection to a link corresponds to a Link connection to a joint and\
+3) eat link connection corresponds to some connection in the joint. \
+For test 1 an N**2 method will be OK because thee are not many connections to a Joint,\
+Test 1 should be part of the Joint code.\
+Tests 2 and 3 need "has a match" code in JoinCommand and LinkCommand\
+to see if the corresponding type of command exists at the target.\
+Then the Liink can simply test its two ends\
+and the Joint can check each of its connections.\
+I have the two-way pointer tests written but not yet tried\
+Quit at 17:00\
+\
+\
+\
+\
+ \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 6 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting at 03:30 at home\
+I will review the work from yesterday and fix up the comments.\
+Then I want to examine a command and see if I can easily get at pointer to its target.\
+I got up after 3 hours\
+\
+Started at PSU about 10 AM\
+worked with interruptions from 1400 to 1800\
+I managed to made a FIFO of links and joints - I'm almost able to print its topologn.\
+Auit at 19:00\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 \
+5 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 Starting early today - it's 01:05 AM\
+I'm going to turn CompoonentTest into ComponentPart and use it\
+as the basis for further Component types\
+I got the ComponentPart stuff to work including the recursive parent check.\
+Quit at 05:00\
+\
+I had another session from about 9 to 11 AM\
+I was able to get the Component and ComponentPart classes to where I like them.\
+Quit at 11:30 to talk with the Austing people.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 4 Jun 2017\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 I made the mistake of trying tot merge Component and ClearableComponent\
+Instead there will be a TopComponent class with one instance - TOP.\
+And an abstract Component class that\'92s the parent for all Components.\
+\
+I plan that LinkType and JointType will have all the stuff that doesn\'92t need to know about the other.\
+Link and Joint will know about each other.\
+I/ve done all that.\
+I now see that Component was abstract and ClearableComponent was concrete subclass.\
+Maybe that\'92s how it has to be.\
+I\'92m think ing abot a class called Group or something like that.\
+It would be a concrete Component class to serve as parent for collections of stuff.\
+Well, that\'92s for tomorrow.\
+I got a lot of things working today. I can make and list Links and Joints.\
+And many of the test codes are working.\
+I built factory methods to make a FIFO, but it\'92s not yet tested.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 3 Jun 2017
+\b0  and the past few days\
+i got the program down to about 40 errors.\
+I have made special Commands for Joints and for Links.\
+The package structure has LinkType and JointType above Link and Joint\
+\
+\
+\
+\
+}
