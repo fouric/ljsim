@@ -32,94 +32,96 @@ import ljSim.commands.SortedJointCommand;
 import ljSim.components.Component;
 import ljSim.components.Joint;
 import ljSim.components.Link;
+
 ///useable action
 public class DemandMergeJoint extends Joint {
 
-    // private int contestedActions = 0;
+	// private int contestedActions = 0;
 
-    public static DemandMergeJoint please(String name, Component parent) {
-        return new DemandMergeJoint(name, parent);
-    }
+	public static DemandMergeJoint please(String name, Component parent) {
+		return new DemandMergeJoint(name, parent);
+	}
 
-    protected DemandMergeJoint(String name, Component parent) {
-        super(name, parent);
-        addAnAction(CopyAction.please("copyZero", this, 0, 0));
-        addAnAction(CopyAction.please("copyOne", this, 1, 0));
-    }
+	protected DemandMergeJoint(String name, Component parent) {
+		super(name, parent);
+		addAnAction(CopyAction.please("copyZero", this, 0, 0));
+		addAnAction(CopyAction.please("copyOne", this, 1, 0));
+	}
 
-    public String getTypeString() {
-        return "DemandMerge";
-    } // returns the type of this component
+	public String getTypeString() {
+		return "DemandMerge";
+	} // returns the type of this component
 
-    private class WakeUp extends SortedJointCommand {
-        // constructor
-        private WakeUp(Joint j) {
-            super(j);
-        }
+	private class WakeUp extends SortedJointCommand {
+		// constructor
+		private WakeUp(Joint j) {
+			super(j);
+		}
 
-        public String getMyType() {
-            return ("WakeUpCommand");
-        }
+		public String getMyType() {
+			return ("WakeUpCommand");
+		}
 
-    }// end of class WakeUp
+	}// end of class WakeUp
 ///guard OK
-    @Override
-    // Only two possible actions, so decision is simpler than for general Joint
-    // this type of joint needs to know about contested uses
-    public boolean wakeAndDo(Link who) {
-        // the Wakeup part
-        Time t= wakeReport(who);
-        // record or clear the input times
-        // getActionTimes();
 
-        int earliestActionIndex = findEarliestActionIndex();
-        if (earliestActionIndex < 0) {
-            String ss= timeHerald(t) + " has no useable action";
-            myMessenger.line(ss);
-            return false;
-        }
-        Action bestAction = actions.get(earliestActionIndex);
-        Time bestTime = bestAction.getMyGuardTime();
-        String ss = timeHerald(bestTime) + " and can do " + bestAction.getMyName();
-        myMessenger.line(ss);
+	@Override
+	// Only two possible actions, so decision is simpler than for general Joint
+	// this type of joint needs to know about contested uses
+	public boolean wakeAndDo(Link who) {
+		// the Wakeup part
+		Time t = wakeReport(who);
+		// record or clear the input times
+		// getActionTimes();
 
-        // now do the action
-        incUseCount();
-        String f = timeHerald(bestTime) + ":" + bestAction.getMyName() + " fires";
-        myMessenger.line(f);
-        bestAction.grab(bestTime);
-        bestAction.fire();
-        return true;
-    }// end of wakeAndDo
+		int earliestActionIndex = findEarliestActionIndex();
+		if (earliestActionIndex < 0) {
+			String ss = timeHerald(t) + " has no useable action";
+			myMessenger.line(ss);
+			return false;
+		}
+		Action bestAction = actions.get(earliestActionIndex);
+		Time bestTime = bestAction.getMyGuardTime();
+		String ss = timeHerald(bestTime) + " and can do " + bestAction.getMyName();
+		myMessenger.line(ss);
 
-    // ---------- topology builders ----------------------
+		// now do the action
+		incUseCount();
+		String f = timeHerald(bestTime) + ":" + bestAction.getMyName() + " fires";
+		myMessenger.line(f);
+		bestAction.grab(bestTime);
+		bestAction.fire();
+		return true;
+	}// end of wakeAndDo
 
-    public void addAnInputLink(Link L, String s) {
-        if (getInputDrainCommands().size() > 1) {// at most the loop link and one data input link
-            myMessenger.error("A DemandMerge can have at most TWO data inputs");
-            return;
-        } else
-            super.addAnInputLink(L);
-    }
+	// ---------- topology builders ----------------------
 
-    public void addAnOutputLink(Link L, String s) {
-        if (getOutputFillCommands().size() > 0) {// at most the loop link and one data output link
-            myMessenger.error("A DemandMerge can have at most ONE data output");
-            return;
-        } else
-            super.addAnOutputLink(L);
-    }
+	public void addAnInputLink(Link L, String s) {
+		if (getInputDrainCommands().size() > 1) {// at most the loop link and one data input link
+			myMessenger.error("A DemandMerge can have at most TWO data inputs");
+			return;
+		} else
+			super.addAnInputLink(L);
+	}
 
-    public boolean checkMyTopology() {
-        boolean ans = checkEnoughLinks(2, 1);
-        ans = ans && super.checkMyTopology();
-        return ans;
-    }
+	public void addAnOutputLink(Link L, String s) {
+		if (getOutputFillCommands().size() > 0) {// at most the loop link and one data output link
+			myMessenger.error("A DemandMerge can have at most ONE data output");
+			return;
+		} else
+			super.addAnOutputLink(L);
+	}
 
-    public void printMyStatistics() {
-        super.printMyStatistics();
-        String s = this.getFullName() + "use count = " + getUseCount();
-        myMessenger.line(s);
-    }
+	public boolean checkMyTopology() {
+		boolean ans = checkEnoughLinks(2, 1);
+		ans = ans && super.checkMyTopology();
+		return ans;
+	}
+
+	public void printMyStatistics() {
+		super.printMyStatistics();
+		String s = this.getFullName() + "use count = " + getUseCount();
+		myMessenger.line(s);
+	}
 
 }// end of DemandMerge

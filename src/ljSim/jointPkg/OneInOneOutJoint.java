@@ -19,50 +19,44 @@ import ljSim.components.Link;
 
 public class OneInOneOutJoint extends Joint {
 
-    public String getTypeString()
-        {
-            return "OneInOneOutJoint";
-        }
+	public String getTypeString() {
+		return "OneInOneOutJoint";
+	}
 
-    public static OneInOneOutJoint please(String name, Component parent)
-        {
-            OneInOneOutJoint ans;
-            ans = new OneInOneOutJoint(name, parent);
-            return ans;
-        }
+	public static OneInOneOutJoint please(String name, Component parent) {
+		OneInOneOutJoint ans;
+		ans = new OneInOneOutJoint(name, parent);
+		return ans;
+	}
 
-    // private constructor accessible only from sub classes
-    protected OneInOneOutJoint(String name, Component parent) 
-        {
-            super(name, parent);
-            Action a= CopyAction.please("copy", this, 0, 0);
-            addAnAction( a );
-            return;
-        }// end of OneInOneOutJoint constructor
-    
-    //to help debugging: a breakpoint here will stop when this type of joint wakes
-    public boolean wakeAndDo(Link who)
-        {
-            return super.wakeAndDo(who);
-        }
+	// private constructor accessible only from sub classes
+	protected OneInOneOutJoint(String name, Component parent) {
+		super(name, parent);
+		Action a = CopyAction.please("copy", this, 0, 0);
+		addAnAction(a);
+		return;
+	}// end of OneInOneOutJoint constructor
 
-    //---------- topology builders ----------------------
-    
-    public void addAnInputLink(Link lk)
-        { super.addAnInputLink(lk, 1); }
-    
-    public void addAnOutputLink(Link lk)
-        { super.addAnOutputLink(lk, 1); }
-    
-    //---------- topology check ----------------------
-    public boolean checkMyTopology()
-        {
-            boolean ans= super.checkMyTopology();
-            ans= ans && checkEnoughLinks(1, 1);
-            return ans;
-        }
+	// to help debugging: a breakpoint here will stop when this type of joint wakes
+	public boolean wakeAndDo(Link who) {
+		return super.wakeAndDo(who);
+	}
 
-    
+	// ---------- topology builders ----------------------
+
+	public void addAnInputLink(Link lk) {
+		super.addAnInputLink(lk, 1);
+	}
+
+	public void addAnOutputLink(Link lk) {
+		super.addAnOutputLink(lk, 1);
+	}
+
+	// ---------- topology check ----------------------
+	public boolean checkMyTopology() {
+		boolean ans = super.checkMyTopology();
+		ans = ans && checkEnoughLinks(1, 1);
+		return ans;
+	}
 
 }// end of class OneInOneOutJoint
-

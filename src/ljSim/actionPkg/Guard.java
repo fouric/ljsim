@@ -4,7 +4,6 @@
  */
 /* Written by Ivan Sutherland on 3 September 2017 */
 
-
 package ljSim.actionPkg;
 
 public class Guard {
