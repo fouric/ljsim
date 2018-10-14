@@ -13,7 +13,7 @@ import ljSim.components.Link;
 
 public class RoundRobinForkJoint extends Joint {
 
-	private int index = -1;
+	//private int index = -1;
 
 	public RoundRobinForkJoint(String name, Component parent) {
 		super(name, parent);

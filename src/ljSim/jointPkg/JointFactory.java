@@ -31,8 +31,8 @@ public class JointFactory {
 		String s = "FIFO-" + fifoNumber;
 		Group par = new Group(s, parent);
 
-		int jointNums = 1;
-		int linkNums = 1;
+		//int jointNums = 1;
+		//int linkNums = 1;
 
 		if (length < 1) {
 			myMessenger.error("can't make a FIFO of size " + length);
@@ -47,22 +47,21 @@ public class JointFactory {
 		Joint to = null;
 		int k = 1;
 		while (k <= length) {
-			if (k < length)
-			// make another joint
-			{
-				String jn = String.valueOf(jointNums);
+			if (k < length) {
+				// make another joint
+				//String jn = String.valueOf(jointNums);
 				// will be assigned unique number
 				to = new OneInOneOutJoint(null, par);
-			} else
+			} else {
 				to = B;
-			Link lk = new Link(null, par);// unique name will be assigned
+			}
+			Link lk = new Link(null, par); // unique name will be assigned
 			connect(from, to, lk);
 			from = to;
 			k++;
-			;
-		} // end of while
+		}
 		return length;
-	}// end of makeFIFO
+	}
 
 	// Connect Joint from to Joint to using link via
 	static public void connect(Joint from, Joint to, Link via) {

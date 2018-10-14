@@ -54,23 +54,23 @@ public class BroadcastAction extends Action {
 
 	// a Source is ready if all output links are empty
 	public Time guard() {
-		Joint J = getMyJoint();
+		//Joint J = getMyJoint();
 		Time fullTime = guardInputLinks();
 		if (fullTime == null) {
-			String s = "Joint " + J.getName() + " BroadcastAction guard fails because of an EMPTY input ";
+			//String s = "Joint " + J.getName() + " BroadcastAction guard fails because of an EMPTY input ";
 			// myMessenger.line(s);
 			return null;
 		}
 		Time emptyTime = guardOutputLinks();
 		if (emptyTime == null) {
-			String s = "Joint " + J.getName() + " BroadcastAction guard fails because of a FULL output ";
+			//String s = "Joint " + J.getName() + " BroadcastAction guard fails because of a FULL output ";
 			// myMessenger.line(s);
 			return null;
 		}
 
 		Time ready = Time.lastOf(emptyTime, fullTime);
 
-		String s = J.timeHerald(ready) + " BroadcastAction guard OK";
+		//String s = J.timeHerald(ready) + " BroadcastAction guard OK";
 		// myMessenger.line(s);
 		setMyGuardTime(ready);
 		return ready;

@@ -100,7 +100,7 @@ public class RoundRobinJoint extends Joint {
 		if (checkIndexBounds(index) == false)
 			myMessenger.error("index out of bounds for " + this.getFullName());
 		CopyAction chosenAction = (CopyAction) actions.get(index);
-		String s = "chosenAction is " + chosenAction.copyActionString();
+		//String s = "chosenAction is " + chosenAction.copyActionString();
 
 		Time dataTime = chosenAction.guard();
 		if (dataTime == null)
@@ -108,8 +108,7 @@ public class RoundRobinJoint extends Joint {
 
 		// we are able to move data
 		Time actionTime = Time.latestOf(ringTime, dataTime);
-		String ss = " CopyActoin " + chosenAction.getCombinedName() + " can act ";
-		myMessenger.line(ss);
+		myMessenger.line(" CopyAction " + chosenAction.getCombinedName() + " can act ");
 		// now do all of the grabs()
 		ringAction.grab(actionTime);
 		chosenAction.grab(actionTime);

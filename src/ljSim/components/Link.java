@@ -392,7 +392,7 @@ public class Link extends Component {
 	}
 
 	public void printMyStatistics() {
-		String s, ss, sss;
+		String s, ss;
 		s = getFullName() + " passed " + plural(passCount, " item") + " and " + plural(spaceCount, " space");
 		ss = " and is " + getStateString();
 		myMessenger.line(s + ss);

@@ -145,7 +145,7 @@ abstract public class Action {
 		Time doneTime = null;
 		for (LinkCommand C : myJoint.getInputDrainCommands()) {
 			Link L = C.getTarget();
-			TimedValue tv = L.getOutput();
+			//TimedValue tv = L.getOutput();
 			Time fullTime = L.becameFullAt();
 			if (fullTime == null) {// print who is not full
 				myMessenger.line("Link " + L.getFullName() + " is not full");

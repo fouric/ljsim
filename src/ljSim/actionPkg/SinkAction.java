@@ -14,7 +14,7 @@ public class SinkAction extends Action {
 
 	// sinkAction accepts whatever it's given when it's given
 	private int allowedFirings = 10;
-	private int sinkDelay = 8;
+	//private int sinkDelay = 8;
 
 	public void initialize() {
 		return;

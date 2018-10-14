@@ -28,7 +28,6 @@ private int numFire1contested;
 import ljSim.actionPkg.Action;
 import ljSim.actionPkg.CopyAction;
 import ljSim.basicA.Time;
-import ljSim.commands.SortedJointCommand;
 import ljSim.components.Component;
 import ljSim.components.Joint;
 import ljSim.components.Link;
@@ -48,8 +47,8 @@ public class DemandMergeJoint extends Joint {
 		return "DemandMerge";
 	} // returns the type of this component
 
+	/*
 	private class WakeUp extends SortedJointCommand {
-		// constructor
 		private WakeUp(Joint j) {
 			super(j);
 		}
@@ -58,8 +57,9 @@ public class DemandMergeJoint extends Joint {
 			return ("WakeUpCommand");
 		}
 
-	}// end of class WakeUp
-///guard OK
+	}*/
+	
+	///guard OK
 
 	@Override
 	// Only two possible actions, so decision is simpler than for general Joint

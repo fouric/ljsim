@@ -18,7 +18,7 @@ public class Fifo {
 	// Constructors
 	protected Fifo(String name, Link in, Link out, int length) {
 		// First we'll make a FIFO from all new parts
-		String s = "FIFO-" + fifoNumber + "-" + name;
+		//String s = "FIFO-" + fifoNumber + "-" + name;
 		//Group par = new Group(s, parent);
 
 		if (length < 1) {
@@ -27,8 +27,7 @@ public class Fifo {
 		}
 		String f = in.getFullName();
 		String t = out.getFullName();
-		String ss = "made FIFO" + fifoNumber + " with " + Component.plural(length, " Link") + " from " + f + " to " + t;
-		myMessenger.line(ss);
+		myMessenger.line("made FIFO" + fifoNumber + " with " + Component.plural(length, " Link") + " from " + f + " to " + t);
 		fifoNumber++;
 
 	}

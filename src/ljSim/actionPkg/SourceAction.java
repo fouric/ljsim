@@ -19,7 +19,7 @@ public class SourceAction extends Action {
 
 	private int interval;
 	private int allowedFirings = 7;
-	private int sourceDelay = 6; // delay to fill source's outputs
+	//private int sourceDelay = 6; // delay to fill source's outputs
 
 	private TimedValue currentTValue = null;
 

@@ -96,7 +96,7 @@ public class Group extends Component {
 
 		Component.clearAllComponents();
 		Component.printTheComponents();
-		Component RR = new Group("RR", BADtwo);
+		//Component RR = new Group("RR", BADtwo);
 		// It's very hard to make circular ancestry because you can
 		// reference only existing Components for ancestry u
 	}
