@@ -23,7 +23,7 @@ import ljSim.components.Link;
 public class RoundRobinJoint extends Joint {
 
 	private String myTypeName = null;
-	private int circumference = -1;
+	//private int circumference = -1;
 	private int numDataInLinks = -1;
 	private int numDataOutLinks = -1;
 
@@ -74,9 +74,9 @@ public class RoundRobinJoint extends Joint {
 		TimedValue tv = new TimedValue(Time.zeroTime, Value.of(1), "initial value");
 		this.getInLink(0).initializeWith(tv);
 		this.getOutLink(0).initializeWith(tv.drained());
-		int circI = this.getInputDrainCommands().size();
-		int circO = getOutputFillCommands().size();
-		circumference = circI + circO - 3;
+		//int circI = this.getInputDrainCommands().size();
+		//int circO = getOutputFillCommands().size();
+		//circumference = circI + circO - 3;
 		for (Action A : this.actions)
 			A.initialize();
 	}
