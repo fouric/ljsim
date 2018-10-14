@@ -114,7 +114,7 @@ public class Link extends Component {
 	}
 
 	public Link(String name, Component parent) {
-		super(parent);
+		super(parent, name);
 		theLinks.add(this);
 		String newName = nameMaker(name);
 		setName(newName);

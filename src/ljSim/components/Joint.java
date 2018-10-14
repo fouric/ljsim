@@ -119,7 +119,7 @@ public class Joint extends Component {
 
 	// Constructor
 	public Joint(String name, Component parent) {
-		super(parent);
+		super(parent, name);
 		theJoints.add(this);
 		String newName = nameMaker(name);
 		setName(newName);

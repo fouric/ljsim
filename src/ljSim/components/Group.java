@@ -27,7 +27,7 @@ public class Group extends Component {
 	}
 
 	public Group(String name) {
-		super(null);
+		super(null, name);
 		List<Component> x = getComponents();
 		x.add(this);
 		recursionCheckBit = false;
@@ -40,7 +40,7 @@ public class Group extends Component {
 	}
 
 	public Group(String name, Component parent) {
-		super(parent);
+		super(parent, name);
 		this.setName(name);
 		return;
 	}
@@ -77,7 +77,7 @@ public class Group extends Component {
 		Component A = new Group("A", null);
 		String nn = A.getFullName();
 		myMessenger.line("A's full name is: " + nn);
-		Component B = new Group("B", getTheParent());
+		Component B = new Group("B", null); // was ("B", getTheParent()) which would get the root node, but it's not obvious as to what the root node is...
 		Component CC = new Group("CC", A);
 		Component DDD = new Group("DDD", CC);
 		Component BADone = new Group("BADone", null);
