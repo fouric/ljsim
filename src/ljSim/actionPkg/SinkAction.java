@@ -61,7 +61,7 @@ public class SinkAction extends Action {
 		Time actTime = this.getMyGuardTime();
 		actTime = actTime.butAfter(t);
 		// get the Link commands
-		TimedValue tv = TimedValue.please(t, null, "sink drain");
+		TimedValue tv = new TimedValue(t, null, "sink drain");
 		for (LinkCommand C : J.getInputDrainCommands()) {
 			C.grabIT(tv);
 		}

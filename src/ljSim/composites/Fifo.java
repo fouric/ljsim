@@ -7,13 +7,12 @@ package ljSim.composites;
 
 import ljSim.basicA.Messenger;
 import ljSim.components.Component;
-import ljSim.components.Group;
 import ljSim.components.Joint;
 import ljSim.components.Link;
 
 public class Fifo {
 
-	private static Messenger myMessenger = Messenger.please("Fifo", 2);
+	private static Messenger myMessenger = Messenger.createAppropriateMessenger("Fifo", 2);
 	private static int fifoNumber = 1;
 
 	// Constructors

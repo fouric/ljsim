@@ -13,17 +13,12 @@ import ljSim.components.Link;
 
 public class RoundRobinJoinJoint extends Joint {
 
-	public static RoundRobinJoinJoint please(String name, Component parent) {
-		return new RoundRobinJoinJoint(name, parent);
-	}
-
-	// the constructor
-	protected RoundRobinJoinJoint(String name, Component parent) {
+	public RoundRobinJoinJoint(String name, Component parent) {
 		super(name, parent);
-		addAnAction(RoundRobinJoinAction.please("RoundRobinJoin", this));
+		addAnAction(new RoundRobinJoinAction("RoundRobinJoin", this));
 		JointFactory.makeAloop(this);
 		return;
-	}// end of constructor
+	}
 
 	public void masterClear() {
 		super.masterClear();

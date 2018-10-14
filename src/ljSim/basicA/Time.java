@@ -12,7 +12,6 @@
 
 package ljSim.basicA;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Time {
@@ -26,51 +25,50 @@ public class Time {
 	static private int farFuture = Integer.MAX_VALUE;
 
 	static public Time getFarFuture() {
-		return please(farFuture);
+		return new Time(farFuture);
 	}
 
 	public static Time theLastTime = new Time(Integer.MAX_VALUE);
 	public static Time zeroTime = new Time(0);
 
-	// Constructor
-	private Time(int t) {
-		myTimeNum = t;
-	}
-
-	public static Time please(int t) {
-		int tt = t < 0 ? -t : t;
-		Time ans = new Time(tt);
-		return ans;
+	public Time(int t) {
+		myTimeNum = Math.abs(t);
 	}
 
 	public boolean isBefore(Time x) {
-		if (x == null)
+		if (x == null) {
 			return false;
-		if (myTimeNum >= x.myTimeNum)
+		} else if (myTimeNum >= x.myTimeNum) {
 			return false;
-		return true;
+		} else {
+			return true;
+		}
 	}
 
 	public boolean isAfter(Time x) {
-		if (x == null)
+		if (x == null) {
 			return false;
-		if (myTimeNum <= x.myTimeNum)
+		} else if (myTimeNum <= x.myTimeNum) {
 			return false;
-		return true;
+		} else {
+			return true;
+		}
 	}
 
 	public boolean isSameAs(Time x) {
-		if (x == null)
+		if (x == null) {
 			return false;
-		if (myTimeNum != x.myTimeNum)
+		} else if (myTimeNum != x.myTimeNum) {
 			return false;
-		return true;
+		} else {
+			return true;	
+		}
 	}
 
 	// get a time later than this one
 	public Time delayedBy(int d) {
-		Time ans = please(myTimeNum + d);
-		return ans;
+		// what if d is negative?
+		return new Time(myTimeNum + d);
 	}
 
 	// get this time unless Time t exists and is later

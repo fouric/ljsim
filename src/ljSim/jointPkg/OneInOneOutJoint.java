@@ -11,7 +11,6 @@
 
 package ljSim.jointPkg;
 
-import ljSim.actionPkg.Action;
 import ljSim.actionPkg.CopyAction;
 import ljSim.components.Component;
 import ljSim.components.Joint;
@@ -23,19 +22,11 @@ public class OneInOneOutJoint extends Joint {
 		return "OneInOneOutJoint";
 	}
 
-	public static OneInOneOutJoint please(String name, Component parent) {
-		OneInOneOutJoint ans;
-		ans = new OneInOneOutJoint(name, parent);
-		return ans;
-	}
-
-	// private constructor accessible only from sub classes
-	protected OneInOneOutJoint(String name, Component parent) {
+	public OneInOneOutJoint(String name, Component parent) {
 		super(name, parent);
-		Action a = CopyAction.please("copy", this, 0, 0);
-		addAnAction(a);
+		addAnAction(new CopyAction("copy", this, 0, 0));
 		return;
-	}// end of OneInOneOutJoint constructor
+	}
 
 	// to help debugging: a breakpoint here will stop when this type of joint wakes
 	public boolean wakeAndDo(Link who) {

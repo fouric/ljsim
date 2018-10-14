@@ -39,14 +39,7 @@ public class CopyAction extends Action {
 		fillDelay = d;
 	}
 
-	static public CopyAction please(String name, Joint parent, int from, int to) {
-		CopyAction ans;
-		ans = new CopyAction(name, parent, from, to);
-		return ans;
-	}
-
-	// the constructor
-	protected CopyAction(String name, Joint parent, int from, int to) {
+	public CopyAction(String name, Joint parent, int from, int to) {
 		super(name, parent);
 		inputIndex = from;
 		outputIndex = to;

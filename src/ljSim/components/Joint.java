@@ -28,7 +28,7 @@ import ljSim.commands.LinkCommand;
 
 public class Joint extends Component {
 
-	protected static Messenger myMessenger = Messenger.please("Joint class", 2);
+	protected static Messenger myMessenger = Messenger.createAppropriateMessenger("Joint class", 2);
 	// a list of all Joints
 	private static List<Joint> theJoints = new LinkedList<Joint>();
 	private static int jointNumber = 1;// used for naming Joints
@@ -109,11 +109,6 @@ public class Joint extends Component {
 		return "Joint";
 	}
 
-	public static Joint please(String name, Component parent) {
-		Joint ans = new Joint(name, parent);
-		return ans;
-	}// end of please
-
 	private String nameMaker(String name) { // create a name for this joint
 		String nn = (name == null) ? "" : "-" + name;
 		int n = getJointNumber();
@@ -123,7 +118,7 @@ public class Joint extends Component {
 	}
 
 	// Constructor
-	protected Joint(String name, Component parent) {
+	public Joint(String name, Component parent) {
 		super(parent);
 		theJoints.add(this);
 		String newName = nameMaker(name);
@@ -256,10 +251,11 @@ public class Joint extends Component {
 		}
 	}// end of class WakeUp
 
+	/*
 	private String getNum(int n) {
 		String ans = (n == 0) ? "no" : Integer.toString(n);
 		return " " + ans;
-	}
+	}*/
 
 	public void printMyTopology() {
 		String name = getName();

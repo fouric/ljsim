@@ -20,7 +20,7 @@ public class SourceJoint extends Joint {
 	public SourceJoint(String name, Component parent) {
 		super(name, parent);
 		// get a source action with period of 100
-		Action x = SourceAction.please("sourceFill", this, 100);
+		Action x = new SourceAction("sourceFill", this, 100);
 		addAnAction(x);
 		return;
 	}

@@ -14,12 +14,8 @@ import ljSim.basicA.Value;
 import ljSim.components.Joint;
 
 public class RingCopyAction extends CopyAction {
-	static public RingCopyAction please(String name, Joint parent, int from, int to) {
-		return new RingCopyAction(name, parent, from, to);
-	}
-
-	// the constructor
-	private RingCopyAction(String name, Joint parent, int from, int to) {
+	
+	public RingCopyAction(String name, Joint parent, int from, int to) {
 		super(name, parent, from, to);
 	}// the ring links are always index 0
 
@@ -30,8 +26,7 @@ public class RingCopyAction extends CopyAction {
 	}
 
 	public Value getRingIndexValue() {
-		Value ans = this.getInputValue(0).getValue();
-		return ans;
+		return this.getInputValue(0).getValue();
 	}
 
 	// This is the special grab action, using myValue as the data

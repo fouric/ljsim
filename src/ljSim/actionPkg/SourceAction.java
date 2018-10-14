@@ -19,7 +19,7 @@ public class SourceAction extends Action {
 
 	private int interval;
 	private int allowedFirings = 7;
-	private int sourceDelay = 6;// delay to fill source's outputs
+	private int sourceDelay = 6; // delay to fill source's outputs
 
 	private TimedValue currentTValue = null;
 
@@ -27,23 +27,18 @@ public class SourceAction extends Action {
 		return;
 	}
 
-	public static SourceAction please(String name, Joint parent) {
-		SourceAction ans = new SourceAction(name, parent, 50);
-		return ans;
-	}
-
-	public static SourceAction please(String name, Joint parent, int period) {
-		SourceAction ans = new SourceAction(name, parent, period);
-		return ans;
-	}
-
-///START
-	// constructor for SourceAction
-	private SourceAction(String name, Joint parent, int period) {
+	public SourceAction(String name, Joint parent, int period) {
 		super(name, parent);
 		// make the initial currentTValue
-		currentTValue = TimedValue.please(Time.please(startTimeNumber), Value.of(initialValue), " from source");
+		currentTValue = new TimedValue(new Time(startTimeNumber), Value.of(initialValue), " from source");
 		interval = period;
+	}
+	
+	public SourceAction(String name, Joint parent) {
+		super(name, parent);
+		// make the initial currentTValue
+		currentTValue = new TimedValue(new Time(startTimeNumber), Value.of(initialValue), " from source");
+		interval = 50;
 	}
 
 	// advance the currentTime to the next clock tick and return data to send

@@ -11,7 +11,6 @@ package ljSim.jointPkg;
 
 import ljSim.actionPkg.SinkAction;
 import ljSim.basicA.Time;
-import ljSim.commands.Command;
 import ljSim.commands.SortedJointCommand;
 import ljSim.components.Component;
 import ljSim.components.Joint;

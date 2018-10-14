@@ -33,19 +33,15 @@ import ljSim.components.Component;
 import ljSim.components.Joint;
 import ljSim.components.Link;
 
-///useable action
+// usable action
 public class DemandMergeJoint extends Joint {
 
 	// private int contestedActions = 0;
 
-	public static DemandMergeJoint please(String name, Component parent) {
-		return new DemandMergeJoint(name, parent);
-	}
-
-	protected DemandMergeJoint(String name, Component parent) {
+	public DemandMergeJoint(String name, Component parent) {
 		super(name, parent);
-		addAnAction(CopyAction.please("copyZero", this, 0, 0));
-		addAnAction(CopyAction.please("copyOne", this, 1, 0));
+		addAnAction(new CopyAction("copyZero", this, 0, 0));
+		addAnAction(new CopyAction("copyOne", this, 1, 0));
 	}
 
 	public String getTypeString() {

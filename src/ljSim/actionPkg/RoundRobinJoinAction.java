@@ -11,16 +11,11 @@ import ljSim.components.Joint;
 
 public class RoundRobinJoinAction extends Action {
 
-	static public RoundRobinJoinAction please(String name, Joint parent) {
-		return new RoundRobinJoinAction(name, parent);
-	}
-
-	// private constructor forces use of method called please
-	private RoundRobinJoinAction(String name, Joint parent) {
+	public RoundRobinJoinAction(String name, Joint parent) {
 		super(name, parent);
 	}
 
-	private int index;// save the index for the grab action
+	private int index; // save the index for the grab action
 
 	public void initialize() {
 		return;

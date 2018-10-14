@@ -44,11 +44,6 @@ public class SortedJointCommand extends JointCommand {
 		return ans;
 	}
 
-	static public SortedJointCommand please(Joint J) {
-		return new SortedJointCommand(J);
-	}
-
-	// Constructor
 	public SortedJointCommand(Joint J) {
 		super(J);
 		doBefore = new LinkedList<UnsortedCommand>();

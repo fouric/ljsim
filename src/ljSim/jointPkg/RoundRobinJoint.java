@@ -32,12 +32,7 @@ public class RoundRobinJoint extends Joint {
 		return myTypeName;
 	}
 
-	public static RoundRobinJoint please(String name, Component parent, String typeName) {
-		return new RoundRobinJoint(name, parent, typeName);
-	}
-
-	// constructor
-	private RoundRobinJoint(String name, Component parent, String typeName) {
+	public RoundRobinJoint(String name, Component parent, String typeName) {
 		super(name, parent);
 		myTypeName = typeName;
 		// makes and initializes the loop as part of constructor
@@ -60,15 +55,15 @@ public class RoundRobinJoint extends Joint {
 		numDataInLinks = in;
 		numDataOutLinks = out;
 		// everyone needs the feedback loop
-		actions.add(RingCopyAction.please("ring", this, 0, 0));
+		actions.add(new RingCopyAction("ring", this, 0, 0));
 		// now add the copy actions from or to link 1
 		if (in > out) {// it's a Join type
 			for (int i = 1; i <= in; i++)
-				actions.add(CopyAction.please("inAction" + i, this, i, 1));
+				actions.add(new CopyAction("inAction" + i, this, i, 1));
 			myTypeName = "RoundRobinJoint";
 		} else {// it's a Fork type
 			for (int i = 1; i <= out; i++)
-				actions.add(CopyAction.please("outAction" + i, this, 1, i));
+				actions.add(new CopyAction("outAction" + i, this, 1, i));
 			myTypeName = "RoundRobinFork";
 		}
 
@@ -76,7 +71,7 @@ public class RoundRobinJoint extends Joint {
 
 	public void masterClear() {
 		super.masterClear();
-		TimedValue tv = TimedValue.please(Time.zeroTime, Value.of(1), "initial value");
+		TimedValue tv = new TimedValue(Time.zeroTime, Value.of(1), "initial value");
 		this.getInLink(0).initializeWith(tv);
 		this.getOutLink(0).initializeWith(tv.drained());
 		int circI = this.getInputDrainCommands().size();

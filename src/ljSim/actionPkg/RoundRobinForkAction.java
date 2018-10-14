@@ -11,11 +11,7 @@ import ljSim.components.Joint;
 
 public class RoundRobinForkAction extends Action {
 
-	static public RoundRobinForkAction please(String name, Joint parent) {
-		return new RoundRobinForkAction(name, parent);
-	}
-
-	private RoundRobinForkAction(String name, Joint parent) {
+	public RoundRobinForkAction(String name, Joint parent) {
 		super(name, parent);
 	}
 

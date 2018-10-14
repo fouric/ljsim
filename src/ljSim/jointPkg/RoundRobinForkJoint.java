@@ -15,17 +15,12 @@ public class RoundRobinForkJoint extends Joint {
 
 	private int index = -1;
 
-	public static RoundRobinForkJoint please(String name, Component parent) {
-		return new RoundRobinForkJoint(name, parent);
-	}
-
-	// the constructor
-	protected RoundRobinForkJoint(String name, Component parent) {
+	public RoundRobinForkJoint(String name, Component parent) {
 		super(name, parent);
-		addAnAction(RoundRobinForkAction.please("RoundRobinFork", this));
+		addAnAction(new RoundRobinForkAction("RoundRobinFork", this));
 		JointFactory.makeAloop(this);
 		return;
-	}// end of constructor
+	}
 
 	public void masterClear() {
 		super.masterClear();

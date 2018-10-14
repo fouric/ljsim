@@ -48,7 +48,7 @@ abstract public class Action {
 		circumference = (c - 1);
 	}
 
-	static protected Messenger myMessenger = Messenger.please("Action class", 2);
+	static protected Messenger myMessenger = Messenger.createAppropriateMessenger("Action class", 2);
 
 	public Joint getMyJoint() {
 		return myJoint;

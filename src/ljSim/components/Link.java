@@ -42,7 +42,7 @@ import ljSim.commands.LinkCommand;
 
 public class Link extends Component {
 
-	protected static Messenger myMessenger = Messenger.please("Link class", 2);
+	protected static Messenger myMessenger = Messenger.createAppropriateMessenger("Link class", 2);
 	private static List<Link> theLinks = new LinkedList<Link>();
 	private static int linkNumber = 1; // used in nameing Links
 
@@ -113,21 +113,14 @@ public class Link extends Component {
 		return false;
 	}
 
-	public static Link please(String name, Component parent) {
-		Link ans = new Link(name, parent);
-		return ans;
-	}// end of please
-
-	// the CONSTRCTOR
-	protected Link(String name, Component parent) {
+	public Link(String name, Component parent) {
 		super(parent);
 		theLinks.add(this);
 		String newName = nameMaker(name);
 		setName(newName);
 		this.masterClear();
 		String t = this.getTypeString();
-		myMessenger.line(
-				"made and cleared Link " + getName() + " of Type " + t + " with parent " + getMyParent().getName());
+		myMessenger.line("made and cleared Link " + getName() + " of Type " + t + " with parent " + getMyParent().getName());
 		return;
 	}
 
@@ -147,8 +140,8 @@ public class Link extends Component {
 
 	@Override
 	public void masterClear() {
-		myInputTimedValue = TimedValue.please(Time.zeroTime, null, "initial emptiness");
-		myOutputTimedValue = TimedValue.please(Time.zeroTime, null, "initial no output");
+		myInputTimedValue = new TimedValue(Time.zeroTime, null, "initial emptiness");
+		myOutputTimedValue = new TimedValue(Time.zeroTime, null, "initial no output");
 		lastAction = computeState();
 		// myMessenger.line("masterClear applied to " + getName());
 		// myMullerC.masterClear(d, v);
@@ -310,9 +303,11 @@ public class Link extends Component {
 			return;
 		}
 
+		/*
 		public TimedValue getLaterValue() {
 			return TimedValue.laterOf(myOutputTimedValue, myInputTimedValue);
 		}
+		*/
 
 		// this method causes the link to do its thing, ending up FULL or EMPTY
 		public void doIT() {

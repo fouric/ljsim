@@ -30,25 +30,20 @@ public class TimedValue {
 		return theValue != null;
 	}
 
-	// Constructor
-	private TimedValue(Time t, Value v, String s) {
-		theValue = v;
+	public TimedValue(Time t, Value v, String s) {
 		theTime = t;
+		theValue = v;
 		comment = s;
 	}
-
-	static public TimedValue please(Time t, Value v, String s) {
-		TimedValue ans = new TimedValue(t, v, s);
-		return ans;
-	}
-
-	static public TimedValue please(Time t, Value v) {
-		TimedValue ans = new TimedValue(t, v, "unknown");
-		return ans;
+	
+	public TimedValue(Time t) {
+		theTime = t;
+		theValue = null;
+		comment = "drained";
 	}
 
 	public TimedValue replaceValue(Value v) {
-		TimedValue ans = TimedValue.please(theTime, v, "new Value");
+		TimedValue ans = new TimedValue(theTime, v, "new Value");
 		return ans;
 	}
 
@@ -69,12 +64,6 @@ public class TimedValue {
 
 	public boolean isAfter(TimedValue tv) {
 		boolean ans = getTime().isAfter(tv.getTime());
-		return ans;
-	}
-
-	// get an empty TValue with time stamp t
-	static public TimedValue please(Time t) {
-		TimedValue ans = new TimedValue(t, null, "drained");
 		return ans;
 	}
 
@@ -101,20 +90,17 @@ public class TimedValue {
 			return this;
 		Time f = getTime();
 		Time x = f.butAfter(t);
-		TimedValue ans = please(x, theValue, comment);
-		return ans;
+		return new TimedValue(x, theValue, comment);
 	}
 
 	public TimedValue delayedBy(int d) {
 		// could make a check here for positive delay d
-		TimedValue ans = please(theTime.delayedBy(d), theValue, comment);
-		return ans;
+		return new TimedValue(theTime.delayedBy(d), theValue, comment);
 	}
 
 	// get a new TimedValue like this one but with null value
 	public TimedValue drained() {
-		TimedValue ans = please(theTime, null, "drained");
-		return ans;
+		return new TimedValue(theTime, null, "drained");
 	}
 
 	// change the value in THIS TimedValue to null
@@ -123,8 +109,7 @@ public class TimedValue {
 	}
 
 	public TimedValue drainedAndAfter(Time t) {
-		TimedValue ans = please(theTime.butAfter(t), null, "drained");
-		return ans;
+		return new TimedValue(theTime.butAfter(t), null, "drained");
 	}
 
 	public String valueString() {
@@ -145,7 +130,7 @@ public class TimedValue {
 
 	public TimedValue nextRingValue(int modulus) {
 		Value newValue = theValue.nextRingValue(modulus);
-		TimedValue ans = TimedValue.please(theTime, newValue, comment);
+		TimedValue ans = new TimedValue(theTime, newValue, comment);
 		return ans;
 	}
 
@@ -155,7 +140,7 @@ public class TimedValue {
 	}
 
 	public TimedValue setValue(Value v) {
-		TimedValue ans = TimedValue.please(theTime, v, comment);
+		TimedValue ans = new TimedValue(theTime, v, comment);
 		return ans;
 	}
 

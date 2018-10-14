@@ -1,4 +1,4 @@
-/*The Joint factory has methodes to build things like FIFOs
+/*The Joint factory has methods to build things like FIFOs
  * 
  */
 /* Written by Ivan on 16 August 2017 */
@@ -16,12 +16,12 @@ import ljSim.components.Link;
 
 public class JointFactory {
 
-	private static Messenger myMessenger = Messenger.please("Factory", 2);
+	private static Messenger myMessenger = Messenger.createAppropriateMessenger("Factory", 2);
 	private static int fifoNumber = 1;
 
 	/*
 	 * CONSTRUCTOR IF NEEDED public JointFactory(Messenger M) { myMessenger = (M !=
-	 * null) ? M : Messenger.please("Factory", 2); return; }// end of PathFactory
+	 * null) ? M : Messenger.createAppropriateMessenger("Factory", 2); return; }// end of PathFactory
 	 * constructor
 	 */
 
@@ -52,11 +52,10 @@ public class JointFactory {
 			{
 				String jn = String.valueOf(jointNums);
 				// will be assigned unique number
-				to = OneInOneOutJoint.please(null, par);
+				to = new OneInOneOutJoint(null, par);
 			} else
 				to = B;
-			Link lk = Link.please(null, par);// unique name will be
-												// assigned
+			Link lk = new Link(null, par);// unique name will be assigned
 			connect(from, to, lk);
 			from = to;
 			k++;
@@ -112,16 +111,16 @@ public class JointFactory {
 	// used by roundRobin Joints
 	static public void makeAloop(Joint J) {
 		String nn = ":loopOF:" + J.getName();
-		OneInOneOutJoint ans = OneInOneOutJoint.please(nn, J);// the intermediate Joint
+		OneInOneOutJoint ans = new OneInOneOutJoint(nn, J);// the intermediate Joint
 		String l1 = "loop1-for-" + J.getName();
 		String l2 = "loop2-for-" + J.getName();
-		Link lk1 = Link.please(l1, J);// the first Link
-		Link lk2 = Link.please(l2, J);// the second Link
+		Link lk1 = new Link(l1, J);// the first Link
+		Link lk2 = new Link(l2, J);// the second Link
 		// connect the loop to this Joint
 		JointFactory.connect(J, ans, lk1);
 		JointFactory.connect(ans, J, lk2);
 		// make lk1 empty and lk2 full with value.of(1) at zeroTime
-		TimedValue iv = TimedValue.please(Time.zeroTime, Value.of(1), "starter");
+		TimedValue iv = new TimedValue(Time.zeroTime, Value.of(1), "starter");
 		lk2.initializeWith(iv);
 		lk1.initializeWith(iv.drained());
 		return;
