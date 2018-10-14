@@ -35,7 +35,6 @@ public class SquareQueue {
 
 	protected static Messenger myMessenger = null;
 
-	// the constructor
 	public SquareQueue(Messenger m) {
 		myMessenger = m;
 		theQueue = new TreeSet<Command>();
@@ -119,20 +118,5 @@ public class SquareQueue {
 		// String s= "Command did " + commandsDone + " maxPending= " +
 		// maxCommandsPending;
 	}
-	/*
-	 * public static void testMe() { Messenger m= Messenger.please("test");
-	 * SquareQueue x= new SquareQueue(m); Command[] ca; ca= new Command[10];
-	 * Command[] cb; cb= new Command[10]; Joint j=
-	 * OneInOneOutJoint.please("testJoint", null);
-	 * 
-	 * for(int i= 1; i<9 ; i++) { ca[i]= new SortedJointCommand (null);
-	 * ca[i].setTime(Time.please(i*1000)); cb[i]= j.getOutCmd(0);
-	 * cb[i].setTime(Time.please(i*400)); }
-	 * 
-	 * for(int i= 1; i<9 ; i++) { ca[i].enQueueMe(Time.please(i*1010)); }
-	 * 
-	 * for(int i= 1; i<9 ; i++) { cb[i].enQueueMe(Time.please(i*440)); } }//end of
-	 * testMe
-	 */
 
-}// end of class SquareQueue
+}

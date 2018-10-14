@@ -19,18 +19,13 @@ import ljSim.components.Link;
 
 public class SinkJoint extends Joint {
 
-	public static SinkJoint please(String name, Component parent) {
-		return new SinkJoint(name, parent);
-	}
-
-	// the constructor
-	protected SinkJoint(String name, Component parent) {
+	// used to be protected, for whatever reason
+	public SinkJoint(String name, Component parent) {
 		super(name, parent);
 		addAnAction(new SinkAction("drainAll", this));
 		return;
-	}// end of constructor
+	}
 
-	// returns the type of this component
 	public String getTypeString() {
 		return "SinkJoint";
 	}
@@ -41,7 +36,7 @@ public class SinkJoint extends Joint {
 		SortedJointCommand myWakeUp = makeAwakeUpCommand();
 		myWakeUp.setSource(null);
 		myWakeUp.enQueueMe(t);
-	}// end of start
+	}
 
 	public SortedJointCommand makeAwakeUpCommand() {
 		SortedJointCommand c = new WakeUpCommand(this);

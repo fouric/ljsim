@@ -16,18 +16,14 @@ import ljSim.components.Link;
 
 public class SourceJoint extends Joint {
 
-	public static SourceJoint please(String name, Component parent) {
-		return new SourceJoint(name, parent);
-	}
-
-	// the constructor
-	protected SourceJoint(String name, Component parent) {
+	// used to be protected for whatever reason
+	public SourceJoint(String name, Component parent) {
 		super(name, parent);
 		// get a source action with period of 100
 		Action x = SourceAction.please("sourceFill", this, 100);
 		addAnAction(x);
 		return;
-	}// end of constructor
+	}
 
 	public String getTypeString() {
 		return "SourceJoint";
@@ -40,7 +36,7 @@ public class SourceJoint extends Joint {
 		myWakeUp.setSource(null);
 		myWakeUp.setTime(t);
 		myWakeUp.enQueueMe(t);
-	}// end of start
+	}
 	/// firing
 
 	public SortedJointCommand makeAwakeUpCommand() {
@@ -62,11 +58,11 @@ public class SourceJoint extends Joint {
 		public String getMyType() {
 			return ("SortedWakeUpCommand");
 		}
-	}// end of class WakeUp
+	}
 
 	// ---------- topology builders ----------------------
 	public void addAnInputLink(Link lk) {
 		super.addAnInputLink(lk, 0);
 	}
 
-}// end of SourceJoint
+}

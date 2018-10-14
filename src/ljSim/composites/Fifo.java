@@ -20,7 +20,7 @@ public class Fifo {
 	protected Fifo(String name, Link in, Link out, int length) {
 		// First we'll make a FIFO from all new parts
 		String s = "FIFO-" + fifoNumber + "-" + name;
-		Group par = new Group(s, parent);
+		//Group par = new Group(s, parent);
 
 		if (length < 1) {
 			myMessenger.error("can't construct a FIFO with length " + length);

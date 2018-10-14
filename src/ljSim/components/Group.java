@@ -5,7 +5,7 @@ Updated 6 June 2017
  
 
  * There is a unique entry called TOP that is the root of the component tree.
- * Comp instabces are kept in a List of Comp, 
+ * Comp instances are kept in a List of Comp, 
  * This is intended as a model for LinkType and JointType
  */
 
@@ -26,30 +26,24 @@ public class Group extends Component {
 		return "Group";
 	}
 
-	// the constructors
 	public Group(String name) {
 		super(null);
 		List<Component> x = getComponents();
 		x.add(this);
-		constructorGuts(name);
 		recursionCheckBit = false;
 		String check = checkForCircularParentage();
 		if (check != null) {
 			myMessenger.say(" Circular parantage found at ");
 			myMessenger.line(check);
-		} // end of if
+		}
 		return;
-	}// end of constructor
+	}
 
 	public Group(String name, Component parent) {
 		super(parent);
 		this.setName(name);
 		return;
-	}// end of constructor
-
-	protected void constructorGuts(String name) {
-		return;
-	}// end of constructorGuts
+	}
 
 	// this method returns a String of the names of a circular parentage
 	// It's very hard to make circular ancestry because you can
@@ -105,6 +99,6 @@ public class Group extends Component {
 		Component RR = new Group("RR", BADtwo);
 		// It's very hard to make circular ancestry because you can
 		// reference only existing Components for ancestry u
-	}// end of testMe
+	}
 
-}// end of class ComponentTest
+}
