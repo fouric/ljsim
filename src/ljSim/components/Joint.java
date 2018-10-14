@@ -31,7 +31,7 @@ public class Joint extends Component {
 	protected static Messenger myMessenger = Messenger.createAppropriateMessenger("Joint class", 2);
 	// a list of all Joints
 	private static List<Joint> theJoints = new LinkedList<Joint>();
-	private static int jointNumber = 1;// used for naming Joints
+	private static int jointNumber = 1; // used for naming Joints
 
 	public int getJointNumber() {
 		return jointNumber;
@@ -228,7 +228,7 @@ public class Joint extends Component {
 		bestAction.grab(bestTime);
 		bestAction.fire();
 		return true;
-	}// end of wakeAndDo
+	}
 
 	public JointCommand makeAwakeUpCommand() {
 		JointCommand c = new WakeUpCommand(this);
@@ -249,13 +249,7 @@ public class Joint extends Component {
 		public String getMyType() {
 			return ("WakeUpCommand");
 		}
-	}// end of class WakeUp
-
-	/*
-	private String getNum(int n) {
-		String ans = (n == 0) ? "no" : Integer.toString(n);
-		return " " + ans;
-	}*/
+	}
 
 	public void printMyTopology() {
 		String name = getName();
@@ -267,15 +261,9 @@ public class Joint extends Component {
 				+ plural(a, " action");
 		myMessenger.line(s);
 		return;
-	}// end of printMyTopology
+	}
 
-	// to check for duplicate attachments
-	/*
-	 * public boolean freeOfDuplicates() { return ok; } // end of
-	 * hasDuplicateLinkCommand
-	 */
-
-// to check that all my links connect to me
+	// to check that all my links connect to me
 	protected boolean checkMyTopology() {
 		boolean ok = true;
 		for (LinkCommand C : inputDrainCommands) {
@@ -297,9 +285,9 @@ public class Joint extends Component {
 			}
 		}
 		return ok;
-	}// end of check my topology
+	}
 
-	// check that there are atleast this many inputs and outputs
+	// check that there are at least this many inputs and outputs
 	protected boolean checkEnoughLinks(int minIn, int minOut) {
 		boolean ans = true;
 		if (getInputDrainCommands().size() < minIn) {
@@ -317,7 +305,7 @@ public class Joint extends Component {
 ///firing with useCoun 
 	public void printMyStatistics() {
 		myMessenger.line(getFullName() + " fired " + getUseCount() + " times but woke " + getWakeCount() + " times");
-	}// end of printTopology
+	}
 
 	// service to print for all Joints
 	static public void clearAllJoints() {
@@ -328,7 +316,7 @@ public class Joint extends Component {
 			CC.masterClear();
 		}
 		myMessenger.line("clearAllJoints done ");
-	}// end of clearAllPaths
+	}
 
 	static public void checkJointTopology() {
 		boolean ok = true;
@@ -340,7 +328,7 @@ public class Joint extends Component {
 			ok = ok && JT.checkMyTopology();
 		String okS = ok ? "topology is OK" : "topology is bad";
 		myMessenger.line(okS);
-	}// end of checkJointTopology
+	}
 
 	static public void printTopology() {
 		int num = theJoints.size();
@@ -351,7 +339,7 @@ public class Joint extends Component {
 			JT.printMyTopology();
 		myMessenger.line("printTopology of Joints is done ");
 		myMessenger.line("");
-	}// end of printTopology
+	}
 
 	static public void printStatistics() {
 		int num = theJoints.size();
@@ -372,6 +360,6 @@ public class Joint extends Component {
 		// printDelays();
 		myMessenger.line("printStatistics of Joints is done ");
 		myMessenger.line("");
-	}// end of printStatistics
+	}
 
 }

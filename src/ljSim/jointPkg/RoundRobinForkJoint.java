@@ -13,8 +13,6 @@ import ljSim.components.Link;
 
 public class RoundRobinForkJoint extends Joint {
 
-	//private int index = -1;
-
 	public RoundRobinForkJoint(String name, Component parent) {
 		super(name, parent);
 		addAnAction(new RoundRobinForkAction("RoundRobinFork", this));
@@ -24,8 +22,9 @@ public class RoundRobinForkJoint extends Joint {
 
 	public void masterClear() {
 		super.masterClear();
-		for (Action A : actions)
+		for (Action A : actions) {
 			A.initialize();
+		}
 	}
 
 	// to help debugging: a breakpoint here will stop when this type of joint wakes
@@ -35,7 +34,7 @@ public class RoundRobinForkJoint extends Joint {
 
 	public String getTypeString() {
 		return "RoundRobinFork";
-	} // returns the type of this component
+	}
 
 	// ---------- topology builders ----------------------
 	public void addAnInputLink(Link L, String s) {
@@ -43,9 +42,7 @@ public class RoundRobinForkJoint extends Joint {
 	}
 
 	public boolean checkMyTopology() {
-		boolean ans = checkEnoughLinks(2, 2);
-		ans = ans && super.checkMyTopology();
-		return ans;
+		return checkEnoughLinks(2, 2) && super.checkMyTopology();
 	}
 
-}// end of class RoundRobinFork
+}

@@ -4,14 +4,12 @@ written by Ivan Sutherland 5 June 2017
 Updated 6 June 2017
  
 
- * There is a unique entry called TOP that is the root of the component tree.
+ * There is a unique entry called ROOT (TODO: make this not hardcoded) that is the root of the component tree.
  * Comp instances are kept in a List of Comp, 
  * This is intended as a model for LinkType and JointType
  */
 
 package ljSim.components;
-
-import java.util.List;
 
 public class Group extends Component {
 
@@ -28,8 +26,6 @@ public class Group extends Component {
 
 	public Group(String name) {
 		super(null, name);
-		List<Component> x = getComponents();
-		x.add(this);
 		recursionCheckBit = false;
 		String check = checkForCircularParentage();
 		if (check != null) {
@@ -46,11 +42,10 @@ public class Group extends Component {
 	}
 
 	// this method returns a String of the names of a circular parentage
-	// It's very hard to make circular ancestry because you can
-	// reference only existing Components for ancestry
+	// It's very hard to make circular ancestry because you can reference only existing Components for ancestry
 	protected String checkForCircularParentage() {
 		String s = getName();
-		if (s.equals("TOP"))
+		if (s.equals("ROOT")) // ugh, this is hardcoded in
 			return null; // we've got to the root
 		if (getParent() == null) {
 			myMessenger.line(getName() + " has null parent");
@@ -59,8 +54,8 @@ public class Group extends Component {
 		if (recursionCheckBit == true) { // I have a problem
 			recursionCheckBit = false;
 			return s;
-		} else // my recursion check bit is false, so check my parent
-		{
+		} else {
+			// my recursion check bit is false, so check my parent
 			recursionCheckBit = true; // leave a trail
 			Group x = (Group) getParent();
 			String p = x.checkForCircularParentage();
@@ -74,10 +69,11 @@ public class Group extends Component {
 	}// end of circularParentage
 
 	public static void testMe() {
-		Component A = new Group("A", null);
+		Component root = new Component(null, "ROOT", true);
+		Component A = new Group("A", root);
 		String nn = A.getFullName();
 		myMessenger.line("A's full name is: " + nn);
-		Component B = new Group("B", null); // was ("B", getTheParent()) which would get the root node, but it's not obvious as to what the root node is...
+		Component B = new Group("B", root); // was ("B", getTheParent()) which would get the root node, but it's not obvious as to what the root node is...
 		Component CC = new Group("CC", A);
 		Component DDD = new Group("DDD", CC);
 		Component BADone = new Group("BADone", null);
@@ -94,11 +90,10 @@ public class Group extends Component {
 		myMessenger.line("NN is called " + NN.getFullName());
 		myMessenger.line("    trying recursive construction");
 
-		Component.clearAllComponents();
-		Component.printTheComponents();
+		root.clearChildren();
+		root.printTheComponents();
 		//Component RR = new Group("RR", BADtwo);
-		// It's very hard to make circular ancestry because you can
-		// reference only existing Components for ancestry u
+		// It's very hard to make circular ancestry because you can reference only existing Components for ancestry
 	}
 
 }
