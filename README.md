@@ -8,4 +8,5 @@ This code was written by Ivan Sutherland (and the others at the [ARC](https://ar
 # Background
 
 [Marly's paper describing the link and joint model](https://arc.cecs.pdx.edu/sites/all/uploads/Publications/RonckenSutherland_ThinkST_Asilomar_2017.pdf)
+
 [Other ARC publications of interest](https://arc.cecs.pdx.edu/publications)
