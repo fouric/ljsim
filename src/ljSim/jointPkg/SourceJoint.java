@@ -7,7 +7,6 @@
 package ljSim.jointPkg;
 
 import ljSim.actionPkg.SourceAction;
-import ljSim.actionPkg.Action;
 import ljSim.basicA.Time;
 import ljSim.commands.SortedJointCommand;
 import ljSim.components.Component;
@@ -20,8 +19,7 @@ public class SourceJoint extends Joint {
 	public SourceJoint(String name, Component parent) {
 		super(name, parent);
 		// get a source action with period of 100
-		Action x = new SourceAction("sourceFill", this, 100);
-		addAnAction(x);
+		addAnAction(new SourceAction("sourceFill", this, 100));
 		return;
 	}
 
