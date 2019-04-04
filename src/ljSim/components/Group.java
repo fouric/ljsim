@@ -17,7 +17,7 @@ public class Group extends Component {
 
 	// --------- Methods to override -----------
 	public void masterClear() {
-		myMessenger.line("clearing " + getName());
+		System.out.println("clearing " + getName());
 	}
 
 	public String getTypeString() {
@@ -29,8 +29,8 @@ public class Group extends Component {
 		recursionCheckBit = false;
 		String check = checkForCircularParentage();
 		if (check != null) {
-			myMessenger.say(" Circular parantage found at ");
-			myMessenger.line(check);
+			System.out.print(" Circular parantage found at ");
+			System.out.println(check);
 		}
 		return;
 	}
@@ -48,7 +48,7 @@ public class Group extends Component {
 		if (s.equals("ROOT")) // ugh, this is hardcoded in
 			return null; // we've got to the root
 		if (getParent() == null) {
-			myMessenger.line(getName() + " has null parent");
+			System.out.println(getName() + " has null parent");
 			return null;// everyone should have a parent
 		}
 		if (recursionCheckBit == true) { // I have a problem
@@ -72,7 +72,7 @@ public class Group extends Component {
 		Component root = new Component(null, "ROOT", true);
 		Component A = new Group("A", root);
 		String nn = A.getFullName();
-		myMessenger.line("A's full name is: " + nn);
+		System.out.println("A's full name is: " + nn);
 		Component B = new Group("B", root); // was ("B", getTheParent()) which would get the root node, but it's not obvious as to what the root node is...
 		Component CC = new Group("CC", A);
 		Component DDD = new Group("DDD", CC);
@@ -80,15 +80,15 @@ public class Group extends Component {
 		Component BADtwo = new Group("BADtwo", CC);
 		Component BADthree = new Group("BADthree", BADtwo);
 		Component NN = new Group(null, CC);
-		myMessenger.line("A is called " + A.getFullName());
-		myMessenger.line("B is called " + B.getFullName());
-		myMessenger.line("CC is called " + CC.getFullName());
-		myMessenger.line("DDD is called " + DDD.getFullName());
-		myMessenger.line("BADone is called " + BADone.getFullName());
-		myMessenger.line("BADtwo is called " + BADtwo.getFullName());
-		myMessenger.line("BADthree is called " + BADthree.getName());
-		myMessenger.line("NN is called " + NN.getFullName());
-		myMessenger.line("    trying recursive construction");
+		System.out.println("A is called " + A.getFullName());
+		System.out.println("B is called " + B.getFullName());
+		System.out.println("CC is called " + CC.getFullName());
+		System.out.println("DDD is called " + DDD.getFullName());
+		System.out.println("BADone is called " + BADone.getFullName());
+		System.out.println("BADtwo is called " + BADtwo.getFullName());
+		System.out.println("BADthree is called " + BADthree.getName());
+		System.out.println("NN is called " + NN.getFullName());
+		System.out.println("    trying recursive construction");
 
 		root.clearChildren();
 		root.printTheComponents();

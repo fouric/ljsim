@@ -61,17 +61,17 @@ public class SourceAction extends Action {
 		Time ready = guardOutputLinks();
 		if (ready == null) {
 			s = s + " has unready outputs ";
-			myMessenger.line(s);
+			System.out.println(s);
 			return null;
 		}
 		if (J.getUseCount() > allowedFirings) {
 			s = s + " has exceeded " + allowedFirings + " allowed firings";
-			myMessenger.line(s);
+			System.out.println(s);
 			return null;
 		}
 		Time t = Time.lastOf(ready, currentTValue.getTime());
 		s = J.timeHerald(t) + " Source Action guard OK";
-		myMessenger.line(s);
+		System.out.println(s);
 		setMyGuardTime(t);
 		return t;// this is earliest it could fire or null if it can't fire.
 	}
@@ -93,7 +93,7 @@ public class SourceAction extends Action {
 		String s = J.timeHerald(t) + " firing with useCount ";
 		String ss = J.getUseCount() + " of ";
 		String sss = allowedFirings + " allowed";
-		myMessenger.line(s + ss + sss);
+		System.out.println(s + ss + sss);
 		// so now we do the firing work
 		for (LinkCommand C : J.getOutputFillCommands())
 			C.enQueueMe(t);

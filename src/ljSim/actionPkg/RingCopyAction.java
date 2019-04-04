@@ -20,7 +20,7 @@ public class RingCopyAction extends CopyAction {
 	}// the ring links are always index 0
 
 	public void initialize() {
-		myMessenger.line("initializing RingCopyAction");
+		System.out.println("initializing RingCopyAction");
 		super.initialize();
 		this.setCircmference();
 	}

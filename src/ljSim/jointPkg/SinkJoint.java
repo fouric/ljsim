@@ -31,7 +31,7 @@ public class SinkJoint extends Joint {
 
 	public void makeQuitTask(Time t) {
 		String s = timeHerald(t) + " makes a quit task";
-		myMessenger.line(s);
+		System.out.println(s);
 		SortedJointCommand myWakeUp = makeAwakeUpCommand();
 		myWakeUp.setSource(null);
 		myWakeUp.enQueueMe(t);

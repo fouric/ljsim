@@ -24,7 +24,7 @@ abstract public class UnsortedCommand extends Command {
 	 * protected static Command getAtask() { Command task= earlyQueue.pollFirst();
 	 * if(task == null)return null; commandsPending -- ; String s=
 	 * "Removing from the earlyQueue " + task.getName(); s= s + " " +
-	 * commandsPending + " tasks remain to do."; // myMessenger.line(s); return
+	 * commandsPending + " tasks remain to do."; // System.out.println(s); return
 	 * task; }
 	 */
 	// the queue for unsorted commands is called the "earlyQueue"

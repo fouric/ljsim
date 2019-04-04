@@ -42,13 +42,13 @@ public class SinkAction extends Action {
 		}
 		if (ready == null) {
 			s = s + " has no input ready to drain";
-			myMessenger.line(s);
+			System.out.println(s);
 			return null;
 		}
 		// ready holds the earliest that the sink's inputs allow it to fire
 		if (J.getUseCount() >= allowedFirings) {
 			s = s + " has exceeded " + allowedFirings + " allowed firings";
-			myMessenger.line(s);
+			System.out.println(s);
 			return null;
 		} // ready contains the earliest it can fire
 		setMyGuardTime(ready);
@@ -72,7 +72,7 @@ public class SinkAction extends Action {
 		Joint J = getMyJoint();
 		Time t = getMyGuardTime();
 		String s = J.timeHerald(t) + " firing with useCount " + J.getUseCount() + " of " + allowedFirings + " allowed";
-		myMessenger.line(s);
+		System.out.println(s);
 		// drain any input link that is FULL
 		for (LinkCommand C : J.getInputDrainCommands())
 			C.doIT();

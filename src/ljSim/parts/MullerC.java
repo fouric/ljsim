@@ -31,11 +31,11 @@
  * firstValue = null; hasDingedA = hasDingedB = false; }// end of masterClear
  * 
  * public Delay dingA(Delay d, Value v) { if (hasDingedA)
- * myMessenger.error("MullerC " + myName + " double ding A"); hasDingedA = true;
+ * System.err.println("MullerC " + myName + " double ding A"); hasDingedA = true;
  * return doDing(d, v); }// end of dingA
  * 
  * public Delay dingB(Delay d, Value v) { if (hasDingedB)
- * myMessenger.error("MullerC " + myName + " double ding B"); hasDingedB = true;
+ * System.err.println("MullerC " + myName + " double ding B"); hasDingedB = true;
  * return doDing(d, v); }// end of dingB
  * 
  * private Delay doDing(Delay d, Value v) { if (firstWhen == null) { firstWhen =
@@ -46,7 +46,7 @@
  * SimpleChore.getDelay(w); }// end of else }// end of dingA
  * 
  * public void printMyStatistics() {
- * myMessenger.line("Statistics for MullerC: hasDingedA= " + hasDingedA +
+ * System.out.println("Statistics for MullerC: hasDingedA= " + hasDingedA +
  * " hasDingedB= " + hasDingedB + " useCount= " + useCount); }// end of
  * printStatistics
  * 

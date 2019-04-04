@@ -73,18 +73,18 @@ public class DemandMergeJoint extends Joint {
 		int earliestActionIndex = findEarliestActionIndex();
 		if (earliestActionIndex < 0) {
 			String ss = timeHerald(t) + " has no useable action";
-			myMessenger.line(ss);
+			System.out.println(ss);
 			return false;
 		}
 		Action bestAction = actions.get(earliestActionIndex);
 		Time bestTime = bestAction.getMyGuardTime();
 		String ss = timeHerald(bestTime) + " and can do " + bestAction.getMyName();
-		myMessenger.line(ss);
+		System.out.println(ss);
 
 		// now do the action
 		incUseCount();
 		String f = timeHerald(bestTime) + ":" + bestAction.getMyName() + " fires";
-		myMessenger.line(f);
+		System.out.println(f);
 		bestAction.grab(bestTime);
 		bestAction.fire();
 		return true;
@@ -94,7 +94,7 @@ public class DemandMergeJoint extends Joint {
 
 	public void addAnInputLink(Link L, String s) {
 		if (getInputDrainCommands().size() > 1) {// at most the loop link and one data input link
-			myMessenger.error("A DemandMerge can have at most TWO data inputs");
+			System.err.println("A DemandMerge can have at most TWO data inputs");
 			return;
 		} else
 			super.addAnInputLink(L);
@@ -102,7 +102,7 @@ public class DemandMergeJoint extends Joint {
 
 	public void addAnOutputLink(Link L, String s) {
 		if (getOutputFillCommands().size() > 0) {// at most the loop link and one data output link
-			myMessenger.error("A DemandMerge can have at most ONE data output");
+			System.err.println("A DemandMerge can have at most ONE data output");
 			return;
 		} else
 			super.addAnOutputLink(L);
@@ -117,7 +117,7 @@ public class DemandMergeJoint extends Joint {
 	public void printMyStatistics() {
 		super.printMyStatistics();
 		String s = this.getFullName() + "use count = " + getUseCount();
-		myMessenger.line(s);
+		System.out.println(s);
 	}
 
 }// end of DemandMerge

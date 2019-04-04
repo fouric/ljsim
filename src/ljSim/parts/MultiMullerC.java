@@ -25,7 +25,7 @@
  * 
  * // the constructor public MultiMullerC(Messenger M, MullerInterface U) { if
  * (M != null) myMessenger = M; myUser = U; if (myUser == null)
- * myMessenger.error("MultiMuller must have a user"); masterClear(Delay.noDelay,
+ * System.err.println("MultiMuller must have a user"); masterClear(Delay.noDelay,
  * null); return; }// end of MullerC constructor
  * 
  * public void masterClear(Delay d, Value v) { bestWhen = null; bestValue =
@@ -33,25 +33,25 @@
  * 0; }// end of masterClear
  * 
  * public void ding(Delay d, Value v) { if (++numHits >
- * myUser.getNumberInputs()) { myMessenger.error("more hits than inputs");
+ * myUser.getNumberInputs()) { System.err.println("more hits than inputs");
  * return; } When W = SimpleChore.getWhen(d); if (bestWhen == null) { bestWhen =
  * SimpleChore.getWhen(d); bestValue = v; }// end of if else { When X =
  * SimpleChore.getWhen(d); bestWhen = When.laterOf(X, bestWhen); // later of
  * both start // and end // bestValue= bestValue.combineWith(v); }// end of else
  * // do the ding check if (!busy) { // start of the protected section
  * notBusyCount++; busy = true; // if(myUser.getNumberInputs() > 1) //
- * myMessenger.line("MCC from " + myUser.getName() + // " with inputs=" +
+ * System.out.println("MCC from " + myUser.getName() + // " with inputs=" +
  * myUser.getNumberInputs() + " hits= " + // numHits); while (numHits ==
  * myUser.getNumberInputs()) { // all have fired //
- * myMessenger.line(" all have fired"); Value V = bestValue; Delay dd =
+ * System.out.println(" all have fired"); Value V = bestValue; Delay dd =
  * SimpleChore.getDelay(bestWhen); numHits = 0; bestValue = null; bestWhen =
  * null; useCount++; myUser.mullerOutput(dd, V); }// end of while busy = false;
  * }// end of if busy, end of protected section else {
- * myMessenger.line("MultiMullerC is busy in " + myUser.getName()); busyCount++;
+ * System.out.println("MultiMullerC is busy in " + myUser.getName()); busyCount++;
  * }// end of else return; }// end of dingA
  * 
  * public void printStatistics() {
- * myMessenger.line("Statistics for MultiMullerC at " + myUser.getName() +
+ * System.out.println("Statistics for MultiMullerC at " + myUser.getName() +
  * " numInputs= " + myUser.getNumberInputs() + ": notBusyCount= " + notBusyCount
  * + " busyCount= " + busyCount + " useCount= " + useCount); }// end of
  * printStatistics

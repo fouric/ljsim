@@ -35,14 +35,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ljSim.basicA.Time;
-import ljSim.basicA.Messenger;
 import ljSim.basicA.TimedValue;
 import ljSim.commands.JointCommand;
 import ljSim.commands.LinkCommand;
 
 public class Link extends Component {
 
-	protected static Messenger myMessenger = Messenger.createAppropriateMessenger("Link class", 2);
 	private static List<Link> theLinks = new LinkedList<Link>();
 	private static int linkNumber = 1; // used in nameing Links
 
@@ -120,7 +118,7 @@ public class Link extends Component {
 		setName(newName);
 		this.masterClear();
 		String t = this.getTypeString();
-		myMessenger.line("made and cleared Link " + getName() + " of Type " + t + " with parent " + getMyParent().getName());
+		System.out.println("made and cleared Link " + getName() + " of Type " + t + " with parent " + getMyParent().getName());
 		return;
 	}
 
@@ -143,7 +141,7 @@ public class Link extends Component {
 		myInputTimedValue = new TimedValue(Time.zeroTime, null, "initial emptiness");
 		myOutputTimedValue = new TimedValue(Time.zeroTime, null, "initial no output");
 		lastAction = computeState();
-		// myMessenger.line("masterClear applied to " + getName());
+		// System.out.println("masterClear applied to " + getName());
 		// myMullerC.masterClear(d, v);
 	}// end of masterClear
 
@@ -154,7 +152,7 @@ public class Link extends Component {
 		if (!inputFULL() && !outputFULL())
 			ans = "EMPTY";
 		if (!inputFULL() && outputFULL()) {// an impossible case - report error
-			myMessenger.error(this.getFullName() + " has impossible state ");
+			System.err.println(this.getFullName() + " has impossible state ");
 			return null;
 		}
 		if (ans != null)
@@ -165,7 +163,7 @@ public class Link extends Component {
 		if (inputFirst())
 			ans = "DRAINing";
 		if (ans == null) {// can't decide on direction
-			myMessenger.error(this.getFullName() + " has undecidable state ");
+			System.err.println(this.getFullName() + " has undecidable state ");
 			return null;
 		}
 		return ans;
@@ -176,7 +174,7 @@ public class Link extends Component {
 		myInputTimedValue = tv;
 		myOutputTimedValue = tv;
 		lastAction = getStateString();
-		myMessenger.line(getTypeAndName() + " initialized " + lastAction);
+		System.out.println(getTypeAndName() + " initialized " + lastAction);
 	}
 
 	public String stateString() {
@@ -196,8 +194,8 @@ public class Link extends Component {
 		String ss = computeState();
 		if (!ss.equals("FULL")) {
 			return null;
-			// myMessenger.error(getFullName() + " not FULL when asked");
-			// myMessenger.error(stateString());
+			// System.err.println(getFullName() + " not FULL when asked");
+			// System.err.println(stateString());
 		}
 		Time t = myOutputTimedValue.getTime();
 		return t;
@@ -208,8 +206,8 @@ public class Link extends Component {
 		String ss = computeState();
 		if (!ss.equals("EMPTY")) {
 			return null;
-			// myMessenger.error(getFullName() + " not EMPTY when asked");
-			// myMessenger.error(stateString());
+			// System.err.println(getFullName() + " not EMPTY when asked");
+			// System.err.println(stateString());
 		}
 		Time t = myInputTimedValue.getTime();
 		return t;
@@ -228,8 +226,8 @@ public class Link extends Component {
 			return;
 		}
 		// this action can't be happening
-		myMessenger.error(getFullName() + " out of sequence action ");
-		myMessenger.error(stateString());
+		System.err.println(getFullName() + " out of sequence action ");
+		System.err.println(stateString());
 		return;
 	}
 
@@ -251,7 +249,7 @@ public class Link extends Component {
 		// make a report
 		String s = timeHerald(myTime) + " passing data count " + passCount + " value "
 				+ myInputTimedValue.valueString();
-		myMessenger.line(s);
+		System.out.println(s);
 
 		// pass the data
 		myOutputTimedValue = tv.delayedBy(passDelay);
@@ -274,7 +272,7 @@ public class Link extends Component {
 		lastAction = "EMPTY";
 
 		String s = timeHerald(myTime) + " passing space " + spaceCount;
-		myMessenger.line(s);
+		System.out.println(s);
 
 		// pass space to input
 		myInputTimedValue = tv.delayedBy(drainDelay);
@@ -323,7 +321,7 @@ public class Link extends Component {
 	// use this to attach a jointCommand as my output, e.g. my Sink
 	public void attachJointCommandForOutput(JointCommand J) {
 		if (mySinkCommand != null)
-			myMessenger.error("double attach Link output");
+			System.err.println("double attach Link output");
 		else {
 			mySinkCommand = J;
 			mySinkCommand.setSource(this);
@@ -332,7 +330,7 @@ public class Link extends Component {
 
 	public void attachJointCommandForInput(JointCommand J) {
 		if (mySourceCommand != null)
-			myMessenger.error("double attach Link input");
+			System.err.println("double attach Link input");
 		else {
 			mySourceCommand = J;
 			mySourceCommand.setSource(this);
@@ -347,28 +345,28 @@ public class Link extends Component {
 	// ---------------------
 	static public void clearAllLinks() {
 		int num = theLinks.size();
-		myMessenger.line("");
-		myMessenger.line("starting to clear " + plural(num, " Link"));
+		System.out.println("");
+		System.out.println("starting to clear " + plural(num, " Link"));
 		for (Component CC : theLinks)
 			CC.masterClear();
-		myMessenger.line("clearAllLinks is done ");
+		System.out.println("clearAllLinks is done ");
 	}// end of clearAllLinks
 
 	static public void printTopology() {
 		int num = theLinks.size();
-		myMessenger.line("");
-		myMessenger.line("Printing topology of " + plural(num, " Link"));
+		System.out.println("");
+		System.out.println("Printing topology of " + plural(num, " Link"));
 		for (Link L : theLinks)
 			L.printMyTopology();
-		myMessenger.line("printTopology of Links is done ");
-		myMessenger.line("");
+		System.out.println("printTopology of Links is done ");
+		System.out.println("");
 	}// end of printTopology
 
 	public void printMyTopology() {
 		Joint in = (Joint) mySourceCommand.getTarget();
 		Joint out = (Joint) mySinkCommand.getTarget();
-		myMessenger.line(getName() + " gets input from " + in.getName());
-		myMessenger.line(getName() + " sends output to " + out.getName());
+		System.out.println(getName() + " gets input from " + in.getName());
+		System.out.println(getName() + " sends output to " + out.getName());
 	}// end of printMyTopology
 
 	private String getStateString() {
@@ -395,20 +393,20 @@ public class Link extends Component {
 		String s, ss;
 		s = getFullName() + " passed " + plural(passCount, " item") + " and " + plural(spaceCount, " space");
 		ss = " and is " + getStateString();
-		myMessenger.line(s + ss);
+		System.out.println(s + ss);
 		s = "    spaceWait  total= " + wait4space + " average= " + ratio(wait4space, spaceCount);
 		ss = "    dataWait  total= " + wait4data + " average= " + ratio(wait4data, passCount);
-		myMessenger.line(s);
-		myMessenger.line(ss);
+		System.out.println(s);
+		System.out.println(ss);
 	}// end of printMyStatistics
 
 	static public void printStatistics() {
 		int num = theLinks.size();
-		myMessenger.line("");
-		myMessenger.line("Printing statistics of " + plural(num, " Link"));
+		System.out.println("");
+		System.out.println("Printing statistics of " + plural(num, " Link"));
 		for (Link L : theLinks)
 			L.printMyStatistics();
-		myMessenger.line("printStatistics of Links is done ");
+		System.out.println("printStatistics of Links is done ");
 	}
 
 	// a service method to list the names of the links in a List of LinkCommands

@@ -6,6 +6,9 @@
  * The first dimension sorts time into unsorted epochs of unsorted commands. 
  * This class contains the stuff to make that happen.
  * Use an instance of this class as a command queue.
+ * 
+ * fouric: So, this is just another way of saying that we have a list (sorted by time)
+ * of unordered sets (containing all of the events that occur at a particular time)
  */
 
 package ljSim.commands;
@@ -15,7 +18,6 @@ import java.util.NavigableSet;
 import java.util.TreeSet;
 
 import ljSim.commands.Command;
-import ljSim.basicA.Messenger;
 
 public class SquareQueue {
 
@@ -33,17 +35,14 @@ public class SquareQueue {
 		return theQueue.size();
 	}
 
-	protected static Messenger myMessenger = null;
-
-	public SquareQueue(Messenger m) {
-		myMessenger = m;
+	public SquareQueue() {
 		theQueue = new TreeSet<Command>();
 		// insert last elements into theQueue
 	}
 
 	public boolean enQueue(UnsortedCommand c) {
 		String s = "" + c.getTime().getMyTimeNum() + " Unsorted enQueue for " + c.getName();
-		myMessenger.line(s);
+		System.out.println(s);
 		Command ac = theQueue.ceiling(c);
 		if (ac == null)
 			return false;
@@ -56,8 +55,7 @@ public class SquareQueue {
 
 	public boolean enQueue(SortedJointCommand c) {
 		String s = "" + c.getTime().getMyTimeNum() + " Sorted enQueue for " + c.getName();
-		;
-		myMessenger.line(s);
+		System.out.println(s);
 		Command cc = theQueue.ceiling(c);
 		boolean ans = theQueue.add(c);
 		if (ans == false)
@@ -73,7 +71,6 @@ public class SquareQueue {
 		return true;
 	}
 
-	// get the next command of any type or return null if none
 	// get the next command of any type or return null if none
 	public Command getNextCommand() {
 		if (theQueue.size() == 0)
@@ -107,9 +104,8 @@ public class SquareQueue {
 	}
 
 	public void printPendingTasks() {
-		myMessenger
-				.line("There are " + commandsPending + " CommandsPending " + " with maximum of " + maxCommandsPending);
-		myMessenger.line("TheQueue.size() = " + theQueue.size());
+		System.out.println("There are " + commandsPending + " CommandsPending " + " with maximum of " + maxCommandsPending);
+		System.out.println("TheQueue.size() = " + theQueue.size());
 		for (Command c : theQueue)
 			c.printMe();
 	}

@@ -5,7 +5,6 @@
 
 package ljSim.jointPkg;
 
-import ljSim.basicA.Messenger;
 import ljSim.basicA.Time;
 import ljSim.basicA.TimedValue;
 import ljSim.basicA.Value;
@@ -16,7 +15,6 @@ import ljSim.components.Link;
 
 public class JointFactory {
 
-	private static Messenger myMessenger = Messenger.createAppropriateMessenger("Factory", 2);
 	private static int fifoNumber = 1;
 
 	/*
@@ -35,13 +33,13 @@ public class JointFactory {
 		//int linkNums = 1;
 
 		if (length < 1) {
-			myMessenger.error("can't make a FIFO of size " + length);
+			System.err.println("can't make a FIFO of size " + length);
 			return 0;
 		}
 		String f = A.getFullName();
 		String t = B.getFullName();
 		String ss = "made FIFO" + fifoNumber + " with " + Component.plural(length, " Link") + " from " + f + " to " + t;
-		myMessenger.line(ss);
+		System.out.println(ss);
 		fifoNumber++;
 		Joint from = A;
 		Joint to = null;
@@ -90,7 +88,7 @@ public class JointFactory {
 			int n = makeFIFO(parent, f, j, l);
 			numLinks = numLinks + n;
 		}
-		myMessenger.line("makeRR made " + Component.plural(numLinks, " Link"));
+		System.out.println("makeRR made " + Component.plural(numLinks, " Link"));
 		return numLinks;
 	}// end of makeRR
 
@@ -102,7 +100,7 @@ public class JointFactory {
 			int n = makeFIFO(parent, f, j, l);
 			numLinks = numLinks + n;
 		}
-		myMessenger.line("makeRR made " + Component.plural(numLinks, " Link"));
+		System.out.println("makeRR made " + Component.plural(numLinks, " Link"));
 		return numLinks;
 	}// end of makeRR
 

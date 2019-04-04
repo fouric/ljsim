@@ -5,7 +5,6 @@
 
 package ljSim.parts;
 
-import ljSim.basicA.Messenger;
 import ljSim.basicA.Time;
 import ljSim.commands.Command;
 import ljSim.commands.JointCommand;
@@ -25,16 +24,13 @@ import ljSim.components.Link;
 
 public class Factory {
 
-	static private Messenger myMessenger = Messenger.createAppropriateMessenger("Factory", 2);
-
-	public Factory(Messenger M) {
-		myMessenger = (M != null) ? M : Messenger.createAppropriateMessenger("Factory", 2);
+	public Factory() {
 		return;
 	}
 
 	// to test SquareQueue
 	static public void testQ() {
-		Command.sq = new SquareQueue(myMessenger);
+		Command.sq = new SquareQueue();
 		SortedJointCommand[] ca;
 		ca = new SortedJointCommand[10];
 		JointCommand[] cb;
@@ -228,11 +224,9 @@ public class Factory {
 		srcB.makeStartTask(Time.zeroTime);
 		snk.makeQuitTask(Time.theLastTime);
 
-		myMessenger.line("");
-		myMessenger.line("PENDING TASKS ARE");
+		System.out.println("PENDING TASKS ARE");
 		Command.printPendingTasks();
-		myMessenger.line("");
-		myMessenger.line("START SIMULATION");
+		System.out.println("START SIMULATION");
 		Command.doManyTasks(200);
 		Link.printStatistics();
 		Joint.printStatistics();

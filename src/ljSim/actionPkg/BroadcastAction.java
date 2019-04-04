@@ -28,7 +28,7 @@ public class BroadcastAction extends Action {
 		for (LinkCommand C : getMyJoint().getInputDrainCommands()) {
 			Time fullTime = C.linkBecameFullAt();
 			if (fullTime == null) {// print who is not full
-				myMessenger.line("Link " + C.getTargetName() + " is not full");
+				System.out.println("Link " + C.getTargetName() + " is not full");
 				return null;// someone wasn't ready
 			}
 			// the Link is full, but at what time?
@@ -43,7 +43,7 @@ public class BroadcastAction extends Action {
 		for (LinkCommand C : getMyJoint().getOutputFillCommands()) {
 			Time emptyTime = C.linkBecameEmptyAt();
 			if (emptyTime == null) {// print who is not full
-				myMessenger.line("Link " + C.getTargetName() + " is not full");
+				System.out.println("Link " + C.getTargetName() + " is not full");
 				return null;// someone wasn't ready
 			}
 			// the Link is full, but at what time?
@@ -58,20 +58,20 @@ public class BroadcastAction extends Action {
 		Time fullTime = guardInputLinks();
 		if (fullTime == null) {
 			//String s = "Joint " + J.getName() + " BroadcastAction guard fails because of an EMPTY input ";
-			// myMessenger.line(s);
+			// System.out.println(s);
 			return null;
 		}
 		Time emptyTime = guardOutputLinks();
 		if (emptyTime == null) {
 			//String s = "Joint " + J.getName() + " BroadcastAction guard fails because of a FULL output ";
-			// myMessenger.line(s);
+			// System.out.println(s);
 			return null;
 		}
 
 		Time ready = Time.lastOf(emptyTime, fullTime);
 
 		//String s = J.timeHerald(ready) + " BroadcastAction guard OK";
-		// myMessenger.line(s);
+		// System.out.println(s);
 		setMyGuardTime(ready);
 		return ready;
 	}// end of guard
@@ -86,7 +86,7 @@ public class BroadcastAction extends Action {
 		int numOutputs = J.getOutputFillCommands().size();
 		if (numInputs != numOutputs) {
 			String s = "Joint " + J.getName() + " BroadcastAction grab fails because unequal num inputs and outputs ";
-			myMessenger.line(s);
+			System.out.println(s);
 			return;
 		}
 		// now move the inputs to the outputs one by one

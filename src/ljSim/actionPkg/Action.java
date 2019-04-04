@@ -18,7 +18,6 @@ package ljSim.actionPkg;
 
 import ljSim.basicA.TimedValue;
 import ljSim.basicA.Time;
-import ljSim.basicA.Messenger;
 import ljSim.commands.LinkCommand;
 import ljSim.components.Joint;
 import ljSim.components.Link;
@@ -47,8 +46,6 @@ abstract public class Action {
 		int c = d > f ? d : f;
 		circumference = (c - 1);
 	}
-
-	static protected Messenger myMessenger = Messenger.createAppropriateMessenger("Action class", 2);
 
 	public Joint getMyJoint() {
 		return myJoint;
@@ -148,7 +145,7 @@ abstract public class Action {
 			//TimedValue tv = L.getOutput();
 			Time fullTime = L.becameFullAt();
 			if (fullTime == null) {// print who is not full
-				myMessenger.line("Link " + L.getFullName() + " is not full");
+				System.out.println("Link " + L.getFullName() + " is not full");
 				return null;// someone wasn't ready
 			}
 			// the Link is full, but at what time?
@@ -164,7 +161,7 @@ abstract public class Action {
 			Link L = C.getTarget();
 			Time emptyTime = L.becameEmptyAt();
 			if (emptyTime == null) {// print who was not empty
-				myMessenger.line("Link " + L.getFullName() + " is not empty");
+				System.out.println("Link " + L.getFullName() + " is not empty");
 				return null;
 			}
 			// it's empty, but at what time did it become so
@@ -237,7 +234,7 @@ abstract public class Action {
 	public void fireMessage(Time t) {
 		Joint J = this.getMyJoint();
 		String s = J.timeHerald(t) + " Action " + getMyName() + " fires with use count " + J.getUseCount();
-		myMessenger.line(s);
+		System.out.println(s);
 	}
 
 }// end of class Action

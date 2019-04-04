@@ -41,11 +41,11 @@
  * 
  * 
  * // this method receives input X public void dingX(Delay d) { if (xWhen !=
- * null) myMessenger.error("double ding input X of " + getName()); xWhen =
+ * null) System.err.println("double ding input X of " + getName()); xWhen =
  * Chore.getWhen(d); gotOne(xWhen); return; }// end of dingX
  * 
  * // this method receives input X public void dingY(Delay d) { if (yWhen !=
- * null) myMessenger.error("double ding input Y of " + getName()); yWhen = xWhen
+ * null) System.err.println("double ding input Y of " + getName()); yWhen = xWhen
  * = Chore.getWhen(d); gotOne(yWhen); return; }// end of dingY
  * 
  * //this method tests to see if both there public void gotOne (When w) {

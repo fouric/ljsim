@@ -66,13 +66,10 @@
 ///About to
 package ljSim.commands;
 
-import ljSim.basicA.Messenger;
 import ljSim.basicA.Time;
 import ljSim.components.Component;
 
 abstract public class Command implements Comparable<Command> {
-	// messenger provided as service to sub type commands
-	protected static Messenger myMessenger = Messenger.createAppropriateMessenger("Command class", 2);
 	private Component target = null;
 	// private Component source = null;
 
@@ -86,7 +83,7 @@ abstract public class Command implements Comparable<Command> {
 		myTime = t;
 	}
 
-	public static SquareQueue sq = new SquareQueue(myMessenger);
+	public static SquareQueue sq = new SquareQueue();
 
 	public static void reset() {
 		// what is a SquareQueue, and why don't we just set this variable inside the class definition instead of in this init function?
@@ -99,7 +96,7 @@ abstract public class Command implements Comparable<Command> {
 		 * Use an instance of this class as a command queue.
 		 */
 		// wait, what's a "two-dimensional queue"?
-		sq = new SquareQueue(myMessenger);
+		sq = new SquareQueue();
 	}
 
 	/// and can do
@@ -164,9 +161,9 @@ abstract public class Command implements Comparable<Command> {
 
 	public static void quit() {
 		String s = "------- Unable to find a task to do so I quit";
-		myMessenger.line(s);
-		myMessenger.line("end of simulation");
-		myMessenger.line("");
+		System.out.println(s);
+		System.out.println("end of simulation");
+		System.out.println("");
 		// System.exit(0);
 	}
 
@@ -188,7 +185,7 @@ abstract public class Command implements Comparable<Command> {
 			return false;
 		}
 		s = "" + task.getTime().getMyTimeNum() + " About to do " + task.getName() + ". It and " + sq.getCommandsPending() + " other Commands remain to do";
-		myMessenger.line(s);
+		System.out.println(s);
 		task.DO(); // if the task can't be done it will be dropped
 		return true;
 	}
@@ -199,7 +196,7 @@ abstract public class Command implements Comparable<Command> {
 		for (; i > 0; i--) {
 			boolean b = doOneTask();
 			if (b == false) {
-				myMessenger.line("The Task list is empty!!!");
+				System.out.println("The Task list is empty!!!");
 				return false;
 			}
 		}
@@ -213,7 +210,7 @@ abstract public class Command implements Comparable<Command> {
 	// ------------------------ service methods ---------------------
 	public void printMe() {
 		String s = this.getName() + myTime.atTimeString();
-		myMessenger.line(s);
+		System.out.println(s);
 	}
 
 	static public void printPendingTasks() {

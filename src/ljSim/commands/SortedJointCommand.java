@@ -75,7 +75,7 @@ public class SortedJointCommand extends JointCommand {
 
 	public void printMe() {
 		String s = getName() + " has " + doBefore.size() + " sub-tasks " + this.getTime().atTimeString();
-		myMessenger.line(s);
+		System.out.println(s);
 		if (doBefore.size() == 0)
 			return;
 		for (UnsortedCommand uc : doBefore)

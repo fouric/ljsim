@@ -22,13 +22,11 @@ import java.util.List;
 
 import ljSim.actionPkg.Action;
 import ljSim.basicA.Time;
-import ljSim.basicA.Messenger;
 import ljSim.commands.JointCommand;
 import ljSim.commands.LinkCommand;
 
 public class Joint extends Component {
 
-	protected static Messenger myMessenger = Messenger.createAppropriateMessenger("Joint class", 2);
 	// a list of all Joints
 	private static List<Joint> theJoints = new LinkedList<Joint>();
 	private static int jointNumber = 1; // used for naming Joints
@@ -97,8 +95,8 @@ public class Joint extends Component {
 	@Override
 	public void masterClear() {
 		myUseCount = 0;
-		myMessenger.line("masterClear applied to " + getName());
-		myMessenger.line("initilizing " + actions.size() + " actions.");
+		System.out.println("masterClear applied to " + getName());
+		System.out.println("initilizing " + actions.size() + " actions.");
 		for (Action a : actions)
 			a.initialize();
 		return;
@@ -133,7 +131,7 @@ public class Joint extends Component {
 			String pn = pp.getName();
 			p = ("made Joint " + getName() + " of Type " + t + " with parent " + pn);
 		}
-		myMessenger.line(p);
+		System.out.println(p);
 	}
 
 	// ---------- topology builders ----------------------
@@ -141,7 +139,7 @@ public class Joint extends Component {
 	// Joints allowed a limited set of output Links must use this method
 	protected void addAnOutputLink(Link lk, int max) {
 		if (getOutputFillCommands().size() > max)
-			myMessenger.error("A " + getFullName() + " may have at most " + max + " data outputs");
+			System.err.println("A " + getFullName() + " may have at most " + max + " data outputs");
 		else
 			addOutputLink(lk);
 	}
@@ -160,7 +158,7 @@ public class Joint extends Component {
 	// Joints allowed a limited set of input Links must use this method
 	protected void addAnInputLink(Link lk, int max) {
 		if (getInputDrainCommands().size() > max)
-			myMessenger.error("A " + getFullName() + " may have at most " + max + " data inputs");
+			System.err.println("A " + getFullName() + " may have at most " + max + " data inputs");
 		else
 			addInputLink(lk);
 	}
@@ -200,7 +198,7 @@ public class Joint extends Component {
 			s = who.getFullName();
 		}
 		String ss = timeHerald(t) + " wake up " + myWakeCount + " by " + s;
-		myMessenger.line(ss);
+		System.out.println(ss);
 		return t;
 	}
 
@@ -213,7 +211,7 @@ public class Joint extends Component {
 		int earliestActionIndex = findEarliestActionIndex();
 		if (earliestActionIndex < 0) {
 			String ss = timeHerald(t) + " has no useable action";
-			myMessenger.line(ss);
+			System.out.println(ss);
 			return false;
 		}
 
@@ -224,7 +222,7 @@ public class Joint extends Component {
 		// now do the action
 		incUseCount();
 		String f = timeHerald(bestTime) + ":" + bestAction.getMyName() + " fires";
-		myMessenger.line(f);
+		System.out.println(f);
 		bestAction.grab(bestTime);
 		bestAction.fire();
 		return true;
@@ -259,7 +257,7 @@ public class Joint extends Component {
 
 		String s = name + " has " + plural(in, " input") + ", " + plural(out, " output") + " and "
 				+ plural(a, " action");
-		myMessenger.line(s);
+		System.out.println(s);
 		return;
 	}
 
@@ -271,7 +269,7 @@ public class Joint extends Component {
 			JointCommand c = L.getSinkCommand();
 			Joint t = c.getTarget();
 			if (t != this) {
-				myMessenger.line(L.getName() + " output fails to point to " + this.getName());
+				System.out.println(L.getName() + " output fails to point to " + this.getName());
 				ok = false;
 			}
 		}
@@ -280,7 +278,7 @@ public class Joint extends Component {
 			JointCommand c = L.getSourceCommand();
 			Component t = c.getTarget();
 			if (t != this) {
-				myMessenger.line(L.getName() + " input fails to point to " + this.getName());
+				System.out.println(L.getName() + " input fails to point to " + this.getName());
 				ok = false;
 			}
 		}
@@ -292,61 +290,61 @@ public class Joint extends Component {
 		boolean ans = true;
 		if (getInputDrainCommands().size() < minIn) {
 			ans = false;
-			myMessenger.error("A " + getFullName() + " must have at least " + minIn + " data inputs");
+			System.err.println("A " + getFullName() + " must have at least " + minIn + " data inputs");
 		}
 		if (getOutputFillCommands().size() < minOut) {
 			ans = false;
 
-			myMessenger.error("A " + getFullName() + " must have at least " + minOut + " data outputs");
+			System.err.println("A " + getFullName() + " must have at least " + minOut + " data outputs");
 		}
 		return ans;
 	}
 
 ///firing with useCoun 
 	public void printMyStatistics() {
-		myMessenger.line(getFullName() + " fired " + getUseCount() + " times but woke " + getWakeCount() + " times");
+		System.out.println(getFullName() + " fired " + getUseCount() + " times but woke " + getWakeCount() + " times");
 	}
 
 	// service to print for all Joints
 	static public void clearAllJoints() {
 		int num = theJoints.size();
-		myMessenger.line("");
-		myMessenger.line("starting to clear " + plural(num, " Joint"));
+		System.out.println("");
+		System.out.println("starting to clear " + plural(num, " Joint"));
 		for (Component CC : theJoints) {
 			CC.masterClear();
 		}
-		myMessenger.line("clearAllJoints done ");
+		System.out.println("clearAllJoints done ");
 	}
 
 	static public void checkJointTopology() {
 		boolean ok = true;
 		int num = theJoints.size();
-		myMessenger.line("");
-		myMessenger.line("checking topology of " + plural(num, " Joint"));
+		System.out.println("");
+		System.out.println("checking topology of " + plural(num, " Joint"));
 		List<Joint> test = theJoints;
 		for (Joint JT : test)
 			ok = ok && JT.checkMyTopology();
 		String okS = ok ? "topology is OK" : "topology is bad";
-		myMessenger.line(okS);
+		System.out.println(okS);
 	}
 
 	static public void printTopology() {
 		int num = theJoints.size();
-		myMessenger.line("");
-		myMessenger.line("Printing topology of " + plural(num, " Joint"));
+		System.out.println("");
+		System.out.println("Printing topology of " + plural(num, " Joint"));
 		List<Joint> test = theJoints;
 		for (Joint JT : test)
 			JT.printMyTopology();
-		myMessenger.line("printTopology of Joints is done ");
-		myMessenger.line("");
+		System.out.println("printTopology of Joints is done ");
+		System.out.println("");
 	}
 
 	static public void printStatistics() {
 		int num = theJoints.size();
 		int wakeUps = 0;
 		int uses = 0;
-		myMessenger.line("");
-		myMessenger.line("Printing statistics of " + plural(num, " Joint"));
+		System.out.println("");
+		System.out.println("Printing statistics of " + plural(num, " Joint"));
 		for (Joint J : theJoints) {
 			wakeUps = wakeUps + J.getWakeCount();
 			uses = uses + J.getUseCount();
@@ -355,11 +353,11 @@ public class Joint extends Component {
 		int ratio = 1000000;
 		if (wakeUps != 0)
 			ratio = 100 * uses / (wakeUps + 1);
-		myMessenger.line("All Joints fired " + uses + " times but woke " + wakeUps + " times.  Use to wakup ratio is "
+		System.out.println("All Joints fired " + uses + " times but woke " + wakeUps + " times.  Use to wakup ratio is "
 				+ ratio + "%");
 		// printDelays();
-		myMessenger.line("printStatistics of Joints is done ");
-		myMessenger.line("");
+		System.out.println("printStatistics of Joints is done ");
+		System.out.println("");
 	}
 
 }

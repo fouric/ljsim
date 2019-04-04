@@ -24,7 +24,6 @@ package ljSim.components;
 import java.util.LinkedList;
 import java.util.List;
 
-import ljSim.basicA.Messenger;
 import ljSim.basicA.Time;
 
 public class Component {
@@ -38,7 +37,6 @@ public class Component {
 		return "Component - you should ONLY see this on the root object!";
 	}
 
-	static protected Messenger myMessenger = Messenger.createAppropriateMessenger("Component class", 2);
 	private List<Component> children = new LinkedList<Component>();
 
 	public List<Component> getChildren() {
@@ -83,7 +81,7 @@ public class Component {
 	public Component(Component p, String n) {
 		if (p == null) {
 			// can't make a second Component without a parent
-			myMessenger.error("can't make a Component without a parent");
+			System.err.println("can't make a Component without a parent");
 			return;
 		}
 		parent = p;
@@ -98,13 +96,13 @@ public class Component {
 		if (p == null) {
 			if (isRoot == false) {
 				// can't make a second Component without a parent
-				myMessenger.error("can't make a Component without a parent");
+				System.err.println("can't make a Component without a parent");
 				return;
 			}
 		} else {
 			p.getChildren().add(this);
 		}
-		//myMessenger.line("making the Component " + name + " of Type " + this.getTypeString());
+		//System.out.println("making the Component " + name + " of Type " + this.getTypeString());
 		parent = p;
 		name = n;
 		return;
@@ -120,25 +118,25 @@ public class Component {
 
 	public void printTheComponents() {
 		int num = children.size();
-		myMessenger.line("");
-		myMessenger.line("Printing all " + plural(num, " Component"));
+		System.out.println("");
+		System.out.println("Printing all " + plural(num, " Component"));
 		for (Component C : children) {
 			Component p = C.getParent();
 			if (p == null)
-				myMessenger.line(C.getFullName() + " has no parent");
+				System.out.println(C.getFullName() + " has no parent");
 			else {
 				String m = C.getFullName();
-				myMessenger.say(m + " parent is ");
-				myMessenger.line(p.getFullName());
+				System.out.print(m + " parent is ");
+				System.out.println(p.getFullName());
 			}
 		}
-		myMessenger.line("-----");
+		System.out.println("-----");
 	}
 
 	public void clearChildren() {
 		int num = children.size();
-		myMessenger.line("");
-		myMessenger.line("Clearing all " + plural(num, " Component"));
+		System.out.println("");
+		System.out.println("Clearing all " + plural(num, " Component"));
 		for (Component C : getChildren()) {
 			C.masterClear();
 		}

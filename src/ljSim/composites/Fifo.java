@@ -5,14 +5,12 @@
 
 package ljSim.composites;
 
-import ljSim.basicA.Messenger;
 import ljSim.components.Component;
 import ljSim.components.Joint;
 import ljSim.components.Link;
 
 public class Fifo {
 
-	private static Messenger myMessenger = Messenger.createAppropriateMessenger("Fifo", 2);
 	private static int fifoNumber = 1;
 
 	// Constructors
@@ -22,12 +20,12 @@ public class Fifo {
 		//Group par = new Group(s, parent);
 
 		if (length < 1) {
-			myMessenger.error("can't construct a FIFO with length " + length);
+			System.err.println("can't construct a FIFO with length " + length);
 			// return 0;
 		}
 		String f = in.getFullName();
 		String t = out.getFullName();
-		myMessenger.line("made FIFO" + fifoNumber + " with " + Component.plural(length, " Link") + " from " + f + " to " + t);
+		System.out.println("made FIFO" + fifoNumber + " with " + Component.plural(length, " Link") + " from " + f + " to " + t);
 		fifoNumber++;
 
 	}

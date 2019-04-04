@@ -48,13 +48,13 @@ public class JournalCommand extends Command {
 	}
 
 	public static void testMe() {
-		myMessenger.line("starting testJournalCommand");
+		System.out.println("starting testJournalCommand");
 		makeComment("two");
 		makeComment("one");
 		makeComment("four");
 		makeComment("three");
 		makeComment("five");
 		Command.doAllTasks();
-		myMessenger.line("ending testJournalCommand");
+		System.out.println("ending testJournalCommand");
 	}// end of testJournalCommand
 }// end of class JournalCommand

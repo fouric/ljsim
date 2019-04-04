@@ -29,7 +29,7 @@ public class SourceJoint extends Joint {
 
 	public void makeStartTask(Time t) {
 		String s = timeHerald(t) + " makes a start task";
-		myMessenger.line(s);
+		System.out.println(s);
 		SortedJointCommand myWakeUp = makeAwakeUpCommand();
 		myWakeUp.setSource(null);
 		myWakeUp.setTime(t);
